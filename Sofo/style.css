@@ -1,0 +1,26 @@
+:root {
+
+    /* color */
+    --color-background : #EFD7C2;
+    --color-beige-slogan : #FDD8B7;
+    --color-beige-dark :  #D2BDAB;
+    --color-beige-light : #FFE5CF;
+    --color-musicsheet : #ffffff;
+    --color-peace : #DBDBDB;
+    --color-darkgray : #4D4D4D;
+    --color-black : #000000;
+
+
+}
+
+* {
+    background-color: var(--color-background);
+    margin: 0 auto;
+}
+
+#left_box {
+    margin: 0 auto;
+    background-color: var(--color-darkgray);
+    width: 200px;
+    height: 100vh;
+}
