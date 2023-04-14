@@ -7,7 +7,7 @@
     --color-beige-light : #FFE5CF;
     --color-musicsheet : #ffffff;
     --color-peace : #DBDBDB;
-    --color-darkgray : #4D4D4D;
+    --color-sidebar : #4D4D4D;
     --color-black : #000000;
 
 
@@ -18,9 +18,27 @@
     margin: 0 auto;
 }
 
-#left_box {
-    margin: 0 auto;
-    background-color: var(--color-darkgray);
-    width: 200px;
+.container {
+    width: 100vw;
     height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#sidebar {
+    width: 274px;
+    height: 100vh;
+    background-color: var(--color-sidebar);
+}
+
+#workspace {
+    width: calc(100% - 548px);
+    height: 100vh;
+}
+
+#toolbox {
+    width: 274px;
+    height: 100vh;
+    background-color: var(--color-beige-dark);
 }
