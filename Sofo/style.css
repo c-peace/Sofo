@@ -10,8 +10,8 @@
     --color-sidebar : #4D4D4D;
     --color-black : #000000;
 
-
 }
+
 
 * {
     background-color: var(--color-background);
@@ -26,12 +26,47 @@
     justify-content: space-between;
 }
 
+/* about SideBar */
 #sidebar {
     width: 274px;
     height: 100vh;
     background-color: var(--color-sidebar);
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
 }
 
+.item_sidebar {
+    background-color: var(--color-sidebar);
+}
+
+#logo {
+    margin-top: 30px;
+    font-weight: bolder;
+    font-size: 55px;
+    color: var(--color-background);
+}
+
+#slogan {
+    padding: 27px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-beige-slogan);
+}
+
+#developer {
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 22px;
+    font-style: italic;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--color-peace);
+}
+
+
+/* about WorkSpace */
 #workspace {
     width: calc(100% - 548px);
     height: 100vh;
@@ -40,5 +75,5 @@
 #toolbox {
     width: 274px;
     height: 100vh;
-    background-color: var(--color-beige-dark);
+    background-color: #f0ceb4;
 }
