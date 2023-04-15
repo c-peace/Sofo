@@ -4,4 +4,4 @@
 
 ## Sample Image
 
-![Group 98](https://user-images.githubusercontent.com/85606158/231740907-5e9b7461-6c37-4f25-b6de-f00de733d3dc.png)
+![Group 100](https://user-images.githubusercontent.com/85606158/232209885-687a02c4-1127-4ceb-b1ad-29cb56111f86.png)
