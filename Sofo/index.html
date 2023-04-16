@@ -29,18 +29,33 @@
         
             <div class="item_toolbox" id="image_box">
                 <h1 class="tool_name">Image</h1>
+                <div class="tool" id="upload_image">
+                    <input type="file">
+                </div>
+                <div class="tool" id="size_image">
+                    <h4>Size</h4>
+                    <input type="range" name="ip_size_image" id="range_image">
+                </div>
             </div>
         
             <div class="item_toolbox" id="flag_box">
                 <h1 class="tool_name">Flag</h1>
+                <div class="tool" id="add_flag"></div>
+                <div class="tool" id="size_flag">
+                    <h4>Size</h4>
+                    <input type="range" name="ip_size_flag" id="range_flag">
+                </div>
             </div>
         
             <div class="item_toolbox" id="text_box">
                 <h1 class="tool_name">Text</h1>
+                <div class="tool" id="add_text"></div>
             </div>
         
             <div class="item_toolbox" id="source_box">
                 <h1 class="tool_name">Source</h1>
+
+                <!-- 여기에는 source들이 추가 되면 javascript로 동적으로 박스들이 생성되게 만들 예정임. -->
             </div>
         
         </div>

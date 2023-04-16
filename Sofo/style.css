@@ -112,12 +112,22 @@
     padding: 11px 0px 0px 23px;
     font-weight: bolder;
     font-size: large;
+    overflow: hidden;
 }
 
 .tool_name {
     font-weight: bolder;
-    font-size: large;
+    font-size: 20px;
     background-color: transparent;
+    margin: 0px 0px 8px 0px;
+}
+
+.tool {
+    width: 200px;
+    height: 45px;
+    border-top: 1px solid var(--color-black);
+    background-color: transparent;
+    margin: 0px;
 }
 
 #image_box {
