@@ -4,7 +4,7 @@
     --color-background: #EFD7C2;
     --color-beige-slogan: #FDD8B7;
     --color-beige-dark: #D2BDAB;
-    --color-beige-light: #FFE5CF;
+    --color-beige-light: #FFECDB;
     --color-musicsheet: #ffffff;
     --color-peace: #DBDBDB;
     --color-sidebar: #4D4D4D;
@@ -78,7 +78,6 @@
 #toolbox {
     width: 274px;
     height: 100vh;
-    text-align: center;
     overflow-y: scroll;
 }
 
@@ -92,23 +91,38 @@
 }
 
 #btn_complete {
-    width: 184px;
-    height: 54px;
+    width: 150px;
+    height: 40px;
+    margin: 30px 0px 0px 14px;
     border-radius: 15px;
     background-color: var(--color-beige-light);
-    margin-top: 30px;
     border: 1px solid var(--color-beige-dark);
+    text-align: center;
 }
+ #btn_complete h1 {
+    font-size: x-large;
+    background-color: transparent;
+ }
 
 .item_toolbox {
     background-color: var(--color-beige-dark);
     border-radius: 15px;
     width: 246px;
+    box-sizing: border-box;
+    padding: 11px 0px 0px 23px;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.tool_name {
+    font-weight: bolder;
+    font-size: large;
+    background-color: transparent;
 }
 
 #image_box {
     height: 178px;
-    margin-top: 37px;
+    margin-top: 30px;
 }
 
 #flag_box {
@@ -124,4 +138,5 @@
 #source_box {
     height: 232px;
     margin-top: 37px;
+    margin-bottom: 10px;
 }
