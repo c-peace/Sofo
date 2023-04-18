@@ -8,6 +8,7 @@
     --color-musicsheet: #ffffff;
     --color-peace: #DBDBDB;
     --color-sidebar: #4D4D4D;
+    --color-sizebar: #252525;
     --color-black: #000000;
 
 }
@@ -98,11 +99,18 @@
     background-color: var(--color-beige-light);
     border: 1px solid var(--color-beige-dark);
     text-align: center;
+    box-shadow: 0px 4px 4px #99836f;
+    cursor: pointer;
 }
- #btn_complete h1 {
+
+#btn_complete:hover {
+    background-color: var(--color-background);
+}
+
+#btn_complete h1 {
     font-size: x-large;
     background-color: transparent;
- }
+}
 
 .item_toolbox {
     background-color: var(--color-beige-dark);
@@ -128,7 +136,73 @@
     border-top: 1px solid var(--color-black);
     background-color: transparent;
     margin: 0px;
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    padding: 10px 0px 0px 0px;
 }
+
+.tool_ex {
+    background-color: transparent;
+    margin-left: 10px;
+    display: flex;
+    /* 나중에 javascript로로 추가시에만 cursor을 pointer 바꾸게 변경하기 */
+    cursor : pointer;
+}
+
+.tool_ex h4{
+    background-color: transparent;
+    font-weight: normal;
+    font-size: medium;
+    margin: -3px 0px 0px 10px;
+}
+
+.tool img {
+    width: 19px;
+    height: 19px;
+    background-color: transparent;
+    margin: 0;
+}
+
+input[type = file] {
+    display: none;
+}
+
+label {
+    background-color: transparent;
+}
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 150px;
+    margin-top: 16px;
+}
+
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: var(--color-sizebar);
+    border-radius: 10px;
+    height: 4px;  
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -6px; /* Centers thumb on the track */
+
+    /*custom styles*/
+    background-color: var(--color-sizebar);
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+}
+
 
 #image_box {
     height: 178px;
