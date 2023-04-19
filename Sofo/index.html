@@ -32,9 +32,9 @@
                 <div class="tool" id="upload_image">
                     <label for="upload" class="tool_ex">
                         <img src="Assets/square.png">
-                        <h4>New Image</h4>
+                        <h4 id="info_img">New Image</h4>
                     </label>
-                    <input type="file" class="tool_ex" id="upload">
+                    <input type="file" accept="image/*" class="tool_ex" id="upload">
                 </div>
                 <div class="tool" id="size_image">
                     <div class="tool_ex">
@@ -59,6 +59,7 @@
                         <h4>Size</h4>
                     </div>
                     <input type="range" name="ip_size_flag" id="range_flag">
+                    <p id="hint">• 드레그으로 Flag 이동.</p>
                 </div>
             </div>
         
@@ -80,5 +81,6 @@
         
         </div>
     </div>
+    <script type="text/javascript" src="tools.js"></script>
 </body>
 </html>
