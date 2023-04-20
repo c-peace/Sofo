@@ -87,10 +87,14 @@
 
 #keyboard {
     width: 600px;
-    height: 50px;
+    height: 60px;
     background-color: var(--color-beige-light);
     border: 2px solid var(--color-black);
     border-radius: 15px;
+    font-size: 20px;
+    color: var(--color-sizebar);
+    box-sizing: border-box;
+    padding: 0px 0px 0px 16px;
 }
 
 #name_keyboard {
