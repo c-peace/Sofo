@@ -180,32 +180,32 @@ input[type="range"] {
     background: transparent;
     cursor: pointer;
     width: 150px;
-    margin-top: 16px;
+    margin-top: 14px;
 }
 
 /* slider track */
 input[type="range"]::-webkit-slider-runnable-track {
     background-color: var(--color-sizebar);
     border-radius: 10px;
-    height: 4px;  
+    height: 3px;  
 }
 
 /* slider thumb */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    margin-top: -6px; /* Centers thumb on the track */
+    margin-top: -5px; /* Centers thumb on the track */
 
     /*custom styles*/
     background-color: var(--color-sizebar);
-    height: 16px;
-    width: 16px;
-    border-radius: 8px;
+    height: 13px;
+    width: 13px;
+    border-radius: 6px;
 }
 
 
 #image_box {
-    height: 178px;
+    height: 164px;
     margin-top: 30px;
 }
 
