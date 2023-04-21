@@ -79,10 +79,14 @@
     align-items: center;
 }
 
-#sheet {
-    background-color: var(--color-musicsheet);
+#workspace canvas {
+    /* 브라우저의 크기에 맞춰서 canvas의 크기를 조절하는 것(사용 안할 수도 있음.)
     width: calc(508 / 963 * 100vh);
     height: calc(719 / 963 * 100vh);
+    */
+    width: 508px;
+    height: 719px;
+    background-color: var(--color-musicsheet);
 }
 
 #keyboard {
