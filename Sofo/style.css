@@ -72,6 +72,37 @@
 #workspace {
     width: calc(100% - 548px);
     height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#sheet {
+    background-color: var(--color-musicsheet);
+    width: calc(508 / 963 * 100vh);
+    height: calc(719 / 963 * 100vh);
+}
+
+#keyboard {
+    width: 600px;
+    height: 60px;
+    background-color: var(--color-beige-light);
+    border: 2px solid var(--color-black);
+    border-radius: 15px;
+    font-size: 20px;
+    color: var(--color-sizebar);
+    box-sizing: border-box;
+    padding: 0px 0px 0px 16px;
+}
+
+#name_keyboard {
+    margin-left: 12px;
+}
+
+input:focus {
+    outline: none;
 }
 
 
