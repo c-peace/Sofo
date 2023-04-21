@@ -1,21 +1,7 @@
 function setCanvas() {
-
-    // basic setting
-    const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = 508;
-    canvas.height = 719;
-
-    // draw text area in canvas
-    ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(38, 43, 431, 66);
-    ctx.moveTo(38, 76);
-    ctx.lineTo(127, 76);
-    ctx.moveTo(127, 43);
-    ctx.lineTo(127, 109);
-    ctx.stroke();
 }
+
+
 
 function uploadImage() {
 
@@ -65,5 +51,37 @@ class Source {
 
 
 // test code
-uploadImage();
-setCanvas();
+
+// basic setting
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+const imageInput = document.getElementById('upload');
+canvas.width = 1190;
+canvas.height = 1684;
+
+
+// draw text area in canvas
+ctx.strokeStyle = "#000000";
+ctx.lineWidth = 3;
+ctx.strokeRect(94, 80, 1002, 142);
+ctx.moveTo(94, 155);
+ctx.lineTo(300, 155);
+ctx.moveTo(300, 80);
+ctx.lineTo(300, 220);
+ctx.stroke();
+
+imageInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+    console.dir(file);
+    image.src = url;
+    image.onload = function () {
+        ctx.drawImage(image, (canvas.width - image.width) / 2, (canvas.height - image.height) / 2, image.width, image.height);
+    };
+
+    const test = document.getElementById('info_img');
+    test.textContent = file.name;
+    // file input disable시키기
+    imageInput.disabled = true;
+});

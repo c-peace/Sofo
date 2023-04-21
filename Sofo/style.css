@@ -81,8 +81,8 @@
 
 #workspace canvas {
     /* 브라우저의 크기에 맞춰서 canvas의 크기를 조절하는 것(사용 안할 수도 있음.) */
-    width: calc(508 / 963 * 100vh);
-    height: calc(719 / 963 * 100vh);
+    width: calc(595 / 969 * 90vh);
+    height: calc(842 / 969 * 90vh);
    
     /* width: 508px;
     height: 719px; */
@@ -91,23 +91,28 @@
 }
 
 #keyboard {
-    width: 600px;
-    height: 60px;
+    width: calc(750/1920*90vw);
+    height: calc(80/969*90vh);
     background-color: var(--color-beige-light);
     border: 2px solid var(--color-black);
-    border-radius: 15px;
+    border-radius: 14px;
     font-size: 20px;
     color: var(--color-sizebar);
     box-sizing: border-box;
-    padding: 0px 0px 0px 16px;
+    padding: 0px 0px 0px 20px;
 }
 
 #name_keyboard {
-    margin: 30px 0 0 12px;
+    margin: 20px 0 0 12px;
+    font-size: 20px;
 }
 
 input:focus {
     outline: none;
+}
+
+input::placeholder {
+    font-size: 16px;
 }
 
 
