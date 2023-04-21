@@ -75,18 +75,19 @@
     overflow: hidden;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 #workspace canvas {
-    /* 브라우저의 크기에 맞춰서 canvas의 크기를 조절하는 것(사용 안할 수도 있음.)
+    /* 브라우저의 크기에 맞춰서 canvas의 크기를 조절하는 것(사용 안할 수도 있음.) */
     width: calc(508 / 963 * 100vh);
     height: calc(719 / 963 * 100vh);
-    */
-    width: 508px;
-    height: 719px;
+   
+    /* width: 508px;
+    height: 719px; */
     background-color: var(--color-musicsheet);
+    box-shadow: 0px 4px 4px #99836f;
 }
 
 #keyboard {
@@ -102,7 +103,7 @@
 }
 
 #name_keyboard {
-    margin-left: 12px;
+    margin: 30px 0 0 12px;
 }
 
 input:focus {
