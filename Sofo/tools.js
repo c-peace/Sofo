@@ -61,6 +61,8 @@ canvas.height = 1684;
 
 
 // draw text area in canvas
+ctx.fillStyle = "white"; // 색상명
+ctx.fillRect(0, 0, 1190, 1684);
 ctx.strokeStyle = "#000000";
 ctx.lineWidth = 3;
 ctx.strokeRect(94, 80, 1002, 142);
@@ -85,3 +87,31 @@ imageInput.addEventListener('change', (event) => {
     // file input disable시키기
     imageInput.disabled = true;
 });
+
+function fullScreen() {
+    const modal = document.querySelector('#modal');
+
+    const url = canvas.toDataURL();
+    console.dir(url);
+    const Fullscreen = document.querySelector("#canvasFullscreen");
+    Fullscreen.src = url;
+
+    modal.style.display = 'block';
+}
+
+function backScreen() {
+    const modal = document.querySelector('#modal');
+
+    modal.style.display = 'none';
+}
+
+function onSaveClick() {
+    const url = canvas.toDataURL();
+    console.dir(url);
+    const Fullscreen = document.querySelector("#canvasFullscreen");
+    Fullscreen.src = url;
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "myDrawing.png";
+    a.click();
+}

@@ -9,6 +9,13 @@
 </head>
 
 <body>
+
+    <div id="modal" onclick="backScreen()">
+        <div id="modal_body">
+            <img src="" alt="미리보기" id="canvasFullscreen">
+        </div>
+    </div>
+
     <div class = 'container'>
         
         <div id="sidebar">
@@ -54,7 +61,7 @@
                 <div class="tool" id="add_flag">
                     <div class="tool_ex">
                         <img src="Assets/square.png">
-                        <h4>New Flag</h4>
+                        <h4 onclick="fullScreen()">New Flag</h4>
                     </div>
                 </div>
                 <div class="tool" id="size_flag">
@@ -72,7 +79,7 @@
                 <div class="tool" id="add_text">
                     <div class="tool_ex">
                         <img src="Assets/square.png">
-                        <h4>New Text</h4>
+                        <h4 onclick="onSaveClick()">New Text</h4>
                     </div>
                 </div>
             </div>
