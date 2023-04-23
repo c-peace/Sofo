@@ -20,7 +20,7 @@
         
         <div id="sidebar">
             <h1 class="item_sidebar" id="logo">Sofo</h1>
-            <p class="item_sidebar" id="slogan">" 찬양팀 세션들이<br>편하게 소통할 수 있도록<br>돕는 것이 목표입니다. "</p>
+            <p class="item_sidebar" id="slogan" onclick="fullScreen()">" 찬양팀 세션들이<br>편하게 소통할 수 있도록<br>돕는 것이 목표입니다. "</p>
             <h3 class="item_sidebar" id="developer">Choi peace</h3>
         </div>
 
@@ -35,7 +35,7 @@
         <div id="toolbox">
         
             <div id="btn_complete">
-                <h1 id="complete">Complete</h1>
+                <h1 id="complete" onclick="onSaveClick()">Complete</h1>
             </div>
         
             <div class="item_toolbox" id="image_box">
@@ -52,7 +52,7 @@
                         <img src="Assets/square.png">
                         <h4>Size</h4>
                     </div>
-                    <input type="range" name="ip_size_image" id="range_image">
+                    <input type="range" name="ip_size_image" id="range_image" min="0.5" max="2" value="1.25" step="0.1">
                 </div>
             </div>
         
@@ -61,7 +61,7 @@
                 <div class="tool" id="add_flag">
                     <div class="tool_ex">
                         <img src="Assets/square.png">
-                        <h4 onclick="fullScreen()">New Flag</h4>
+                        <h4>New Flag</h4>
                     </div>
                 </div>
                 <div class="tool" id="size_flag">
@@ -79,7 +79,7 @@
                 <div class="tool" id="add_text">
                     <div class="tool_ex">
                         <img src="Assets/square.png">
-                        <h4 onclick="onSaveClick()">New Text</h4>
+                        <h4>New Text</h4>
                     </div>
                 </div>
             </div>

@@ -65,28 +65,42 @@ ctx.fillStyle = "white"; // 색상명
 ctx.fillRect(0, 0, 1190, 1684);
 ctx.strokeStyle = "#000000";
 ctx.lineWidth = 3;
-ctx.strokeRect(94, 80, 1002, 142);
+ctx.strokeRect(94, 80, 1002, 140);
 ctx.moveTo(94, 155);
 ctx.lineTo(300, 155);
 ctx.moveTo(300, 80);
 ctx.lineTo(300, 220);
 ctx.stroke();
 
-imageInput.addEventListener('change', (event) => {
+const imageRange = document.querySelector('#range_image');
+let imageRangeValue = 1;
+
+imageRange.addEventListener('change', (event) => {
+    imageRangeValue = event.target.value;
+    console.log(imageRangeValue);
+
+});
+
+function loadImage(event) {
     const file = event.target.files[0];
     const url = URL.createObjectURL(file);
     const image = new Image();
     console.dir(file);
     image.src = url;
     image.onload = function () {
-        ctx.drawImage(image, (canvas.width - image.width) / 2, (canvas.height - image.height) / 2, image.width, image.height);
+        const imageHeight = image.height;
+        const imageWidth = image.width;
+        ctx.drawImage(image, (canvas.width - imageWidth) / 2, (220 + canvas.height - imageHeight) / 2, imageWidth, imageHeight);
     };
 
     const test = document.getElementById('info_img');
     test.textContent = file.name;
     // file input disable시키기
     imageInput.disabled = true;
-});
+
+};
+
+imageInput.addEventListener('change', loadImage);
 
 function fullScreen() {
     const modal = document.querySelector('#modal');
