@@ -28,7 +28,7 @@
             <canvas></canvas>
             <label for="keyboard">
                 <h4 id="name_keyboard">Keyboard</h4>
-                <input type="text" id="keyboard" placeholder="Typing... Enter!">
+                <input type="text" id="keyboard" placeholder="Sofo - 찬양팀 세션을 위한 악보편집 서비스" onkeyup="enterkey()" disabled="True">
             </label>
         </div>
 
@@ -46,13 +46,6 @@
                         <h4 id="info_img">New Image</h4>
                     </label>
                     <input type="file" accept="image/*" class="tool_ex" id="upload">
-                </div>
-                <div class="tool" id="size_image">
-                    <div class="tool_ex">
-                        <img src="Assets/square.png">
-                        <h4>Size</h4>
-                    </div>
-                    <input type="range" name="ip_size_image" id="range_image" min="0.5" max="2" value="1.25" step="0.1">
                 </div>
             </div>
         
@@ -77,9 +70,9 @@
             <div class="item_toolbox" id="text_box">
                 <h1 class="tool_name">Text</h1>
                 <div class="tool" id="add_text">
-                    <div class="tool_ex">
+                    <div class="tool_ex" onclick="onTextClick()">
                         <img src="Assets/square.png">
-                        <h4>New Text</h4>
+                        <h4 id="info_text">New Text</h4>
                     </div>
                 </div>
             </div>

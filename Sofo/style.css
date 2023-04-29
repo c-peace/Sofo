@@ -129,7 +129,13 @@
     font-size: 20px;
     color: var(--color-sizebar);
     box-sizing: border-box;
-    padding: 0px 0px 0px 20px;
+    padding: 0px 20px 0px 20px;
+}
+
+#keyboard::placeholder {
+    text-align: center;
+    font-size: 16px;
+    color: #252525;
 }
 
 #name_keyboard {
@@ -274,9 +280,13 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 6px;
 }
 
+#info_img {
+    width: 141px;
+    overflow: hidden;
+}
 
 #image_box {
-    height: 164px;
+    height: 100px;
     margin-top: 30px;
 }
 
