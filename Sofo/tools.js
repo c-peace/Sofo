@@ -1,10 +1,3 @@
-class Source {
-    constructor(type, name) {
-        this.type = type;
-        this.name = name;
-    }
-}
-
 
 // basic setting
 const canvas = document.querySelector('canvas');
@@ -54,7 +47,7 @@ function loadImage(event) {
     };
 
     const infoImage = document.getElementById('info_img');
-    infoImage.textContent = file.name;
+    infoImage.textContent = '선택완료!';
     // file input disable시키기
     imageInput.disabled = true;
 
@@ -70,6 +63,7 @@ function onTextClick() {
     infoText.textContent = '입력중 . . .';
     drawTextArea();
     keyboard.disabled = false;
+    keyboard.focus();
     keyboard.placeholder = 'Typing... Enter!';
     i = 0;
 }

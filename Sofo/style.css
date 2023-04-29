@@ -169,6 +169,17 @@ input::placeholder {
 }
 
 #btn_complete {
+    display: flex;
+}
+
+#btn_complete img {
+    width: 30px;
+    height: 30px;
+    margin: 37px 0px 0px 30px;
+    cursor: pointer;
+}
+
+#complete {
     width: 150px;
     height: 40px;
     margin: 30px 0px 0px 14px;
@@ -178,16 +189,14 @@ input::placeholder {
     text-align: center;
     box-shadow: 0px 4px 4px #99836f;
     cursor: pointer;
+    font-size: x-large;
 }
 
-#btn_complete:hover {
+#complete:hover {
     background-color: var(--color-background);
 }
 
-#btn_complete h1 {
-    font-size: x-large;
-    background-color: transparent;
-}
+
 
 .item_toolbox {
     background-color: var(--color-beige-dark);
@@ -305,10 +314,4 @@ input[type="range"]::-webkit-slider-thumb {
 #text_box {
     height: 100px;
     margin-top: 19px;
-}
-
-#source_box {
-    height: 232px;
-    margin-top: 37px;
-    margin-bottom: 10px;
 }
