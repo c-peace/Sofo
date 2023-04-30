@@ -1,84 +1,97 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
     <title>Sofo</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div id="modal" onclick="backScreen()">
-        <div id="modal_body">
-            <img src="" alt="미리보기" id="canvasFullscreen">
-        </div>
+      <div id="modal_body">
+        <img src="" alt="미리보기" id="canvasFullscreen" />
+      </div>
     </div>
 
-    <div class = 'container'>
-        
-        <div id="sidebar">
-            <h1 class="item_sidebar" id="logo">Sofo</h1>
-            <p class="item_sidebar" id="slogan">" 찬양팀 세션들이<br>편하게 소통할 수 있도록<br>돕는 것이 목표입니다. "</p>
-            <h3 class="item_sidebar" id="developer">Choi peace</h3>
+    <div class="container">
+      <div id="sidebar">
+        <h1 class="item_sidebar" id="logo">Sofo</h1>
+        <p class="item_sidebar" id="slogan">
+          " 찬양팀 세션들이<br />편하게 소통할 수 있도록<br />돕는 것이
+          목표입니다. "
+        </p>
+        <h3 class="item_sidebar" id="developer">Choi peace</h3>
+      </div>
+
+      <div id="workspace">
+        <div id="canvasBox">
+          <canvas id="canvasFlag"></canvas>
+          <canvas id="canvasMain"></canvas>
+        </div>
+        <label for="keyboard">
+          <h4 id="name_keyboard">Keyboard</h4>
+          <input
+            type="text"
+            id="keyboard"
+            placeholder="Sofo - 찬양팀 세션을 위한 악보편집 서비스"
+            onkeyup="enterkey()"
+            disabled="True"
+          />
+        </label>
+      </div>
+
+      <div id="toolbox">
+        <div id="btn_complete">
+          <h1 id="complete" onclick="onSaveClick()">Complete</h1>
+          <img src="Assets/fullscreen.png" onclick="fullScreen()" />
         </div>
 
-        <div id="workspace">
-            <canvas></canvas>
-            <label for="keyboard">
-                <h4 id="name_keyboard">Keyboard</h4>
-                <input type="text" id="keyboard" placeholder="Sofo - 찬양팀 세션을 위한 악보편집 서비스" onkeyup="enterkey()" disabled="True">
+        <div class="item_toolbox" id="image_box">
+          <h1 class="tool_name">Image</h1>
+          <div class="tool" id="upload_image">
+            <label for="upload" class="tool_ex">
+              <img src="Assets/square.png" />
+              <h4 id="info_img">New Image</h4>
             </label>
+            <input type="file" accept="image/*" class="tool_ex" id="upload" />
+          </div>
         </div>
 
-        <div id="toolbox">
-        
-            <div id="btn_complete">
-                <h1 id="complete" onclick="onSaveClick()">Complete</h1>
-                <img src="Assets/fullscreen.png" onclick="fullScreen()">
+        <div class="item_toolbox" id="flag_box">
+          <h1 class="tool_name">Flag</h1>
+          <div class="tool" id="add_flag">
+            <div class="tool_ex">
+              <img src="Assets/square.png" />
+              <h4 id="info_flag" onclick="onFlagClick()">New Flag</h4>
             </div>
-        
-            <div class="item_toolbox" id="image_box">
-                <h1 class="tool_name">Image</h1>
-                <div class="tool" id="upload_image">
-                    <label for="upload" class="tool_ex">
-                        <img src="Assets/square.png">
-                        <h4 id="info_img">New Image</h4>
-                    </label>
-                    <input type="file" accept="image/*" class="tool_ex" id="upload">
-                </div>
+          </div>
+          <div class="tool" id="size_flag">
+            <div class="tool_ex">
+              <img src="Assets/square.png" />
+              <h4>Size</h4>
             </div>
-        
-            <div class="item_toolbox" id="flag_box">
-                <h1 class="tool_name">Flag</h1>
-                <div class="tool" id="add_flag">
-                    <div class="tool_ex">
-                        <img src="Assets/square.png">
-                        <h4>New Flag</h4>
-                    </div>
-                </div>
-                <div class="tool" id="size_flag">
-                    <div class="tool_ex">
-                        <img src="Assets/square.png">
-                        <h4>Size</h4>
-                    </div>
-                    <input type="range" name="ip_size_flag" id="range_flag">
-                    <p id="hint">• 드레그으로 Flag 이동.</p>
-                </div>
-            </div>
-        
-            <div class="item_toolbox" id="text_box">
-                <h1 class="tool_name">Text</h1>
-                <div class="tool" id="add_text">
-                    <div class="tool_ex" onclick="onTextClick()">
-                        <img src="Assets/square.png">
-                        <h4 id="info_text">New Text</h4>
-                    </div>
-                </div>
-            </div>
+            <input type="range" name="ip_size_flag" id="range_flag" />
+            <p id="hint">• 드레그으로 Flag 이동.</p>
+          </div>
         </div>
+
+        <div class="item_toolbox" id="text_box">
+          <h1 class="tool_name">Text</h1>
+          <div class="tool" id="add_text">
+            <div class="tool_ex" onclick="onTextClick()">
+              <img src="Assets/square.png" />
+              <h4 id="info_text">New Text</h4>
+            </div>
+          </div>
+        </div>
+        <div class="item_toolbox" id="source_box">
+          <h1 class="tool_name">Source</h1>
+          <!-- 여기에는 source들이 추가 되면 javascript로 동적으로 박스들이 생성되게 만들 예정임. -->
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="tools.js"></script>
-</body>
+  </body>
 </html>

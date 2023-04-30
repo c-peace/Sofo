@@ -15,11 +15,12 @@
 
 
 * {
-    background-color: var(--color-background);
+    background-color: transparent;
     margin: 0 auto;
 }
 
 .container {
+    background-color: var(--color-background);
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -109,16 +110,32 @@
     align-items: center;
 }
 
-#workspace canvas {
-    /* 브라우저의 크기에 맞춰서 canvas의 크기를 조절하는 것(사용 안할 수도 있음.) */
+#canvasBox {
     width: calc(595 / 969 * 90vh);
     height: calc(842 / 969 * 90vh);
-   
-    /* width: 508px;
-    height: 719px; */
+    position: relative;
+    background-color: transparent;
+    display: inline;
+}
+
+canvas {
+    position: absolute;
+}
+
+#canvasFlag {
+    width: calc(595 / 969 * 90vh);
+    height: calc(842 / 969 * 90vh);
+    z-index: 2;
+}
+
+#canvasMain {
+    width: calc(595 / 969 * 90vh);
+    height: calc(842 / 969 * 90vh);
     background-color: var(--color-musicsheet);
     box-shadow: 0px 4px 4px #99836f;
+    z-index: 1;
 }
+
 
 #keyboard {
     width: calc(750/1920*90vw);
@@ -314,4 +331,10 @@ input[type="range"]::-webkit-slider-thumb {
 #text_box {
     height: 100px;
     margin-top: 19px;
+}
+
+#source_box {
+    height: 232px;
+    margin-top: 37px;
+    margin-bottom: 10px;
 }
