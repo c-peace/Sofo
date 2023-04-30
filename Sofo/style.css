@@ -115,7 +115,6 @@
     height: calc(842 / 969 * 90vh);
     position: relative;
     background-color: transparent;
-    display: inline;
 }
 
 canvas {
