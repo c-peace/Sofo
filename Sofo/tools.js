@@ -26,6 +26,7 @@ drawTextArea();
 
 // load Music Score
 function loadImage(event) {
+    clearImage();
     const file = event.target.files[0];
     const url = URL.createObjectURL(file);
     const image = new Image();
@@ -34,24 +35,21 @@ function loadImage(event) {
     image.onload = function () {
 
         // set image size
-        let imageHeight = 0;
-        let imageWidth = 0;
-        if (image.height > image.width) {
-            imageHeight = (canvas.height - 220) * 9 / 10;
-            imageWidth = image.width * imageHeight / image.height;
-        } else {
-            imageWidth = canvas.width * 9 / 10;
+        let imageHeight = (canvas.height - 220) * 95 / 100;
+        let imageWidth = image.width * imageHeight / image.height;
+
+        if (imageWidth > canvas.width * 95 / 100) {
+            imageWidth = canvas.width * 95 / 100;
             imageHeight = image.height * imageWidth / image.width;
         }
+
         ctx.drawImage(image, (canvas.width - imageWidth) / 2, (220 + canvas.height - imageHeight) / 2, imageWidth, imageHeight);
     };
-
-    const infoImage = document.getElementById('info_img');
-    infoImage.textContent = '선택완료!';
-    // file input disable시키기
-    imageInput.disabled = true;
-
 };
+
+function clearImage() {
+    ctx.fillRect(0, 230, canvas.width, canvas.height)
+}
 
 imageInput.addEventListener('change', loadImage);
 
@@ -72,27 +70,37 @@ canvasFlag.addEventListener('mouseup', myUp);
 canvasFlag.addEventListener('mousemove', myMove);
 
 const shapes = [];
-shapes.push({ x: 100, y: 1600, r: 30, strokeStyle: "black", fillStyle: "white", name: "A", isDragging: false });
 
 const infoFlag = document.getElementById('info_flag');
+const infoText = document.getElementById('info_text');
 const keyboard = document.querySelector('#keyboard');
 
 function onFlagClick() {
     infoFlag.textContent = '생성중 . . .';
+    infoText.textContent = 'New Text';
     keyboard.disabled = false;
     keyboard.focus();
     keyboard.placeholder = 'Typing... Enter!';
     i = 4;
 }
 
+function deleteAll() {
+    infoFlag.textContent = 'New Flag';
+    clear();
+    if (i == 4) {
+        keyboard.disabled = true;
+        keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
+    }
+}
+
 function createFlag(nameFlag) {
-    shapes.push({ x: 25 * i, y: 1600, r: 30, strokeStyle: "black", fillStyle: "white", name: nameFlag, isDragging: false });
+    shapes.push({ x: 120, y: 1600, r: 26, strokeStyle: "black", fillStyle: "white", name: nameFlag, isDragging: false });
 }
 
 function circle(c) {
     ctxFlag.save();
     ctxFlag.beginPath();
-    // outlind
+    // outline
     ctxFlag.lineWidth = 8;
     ctxFlag.strokeStyle = c.strokeStyle;
     ctxFlag.arc(c.x, c.y, c.r, 0, 2 * Math.PI);
@@ -105,7 +113,7 @@ function circle(c) {
     ctxFlag.lineWidth = 1;
     ctxFlag.fillStyle = c.strokeStyle;
     ctxFlag.font = '40px Arial';
-    ctxFlag.fillText(c.name, c.x, c.y + c.r * 1 / 3);
+    ctxFlag.fillText(c.name, c.x, c.y + c.r * 1 / Math.PI + 2);
     ctxFlag.restore();
 }
 
@@ -120,6 +128,7 @@ function draw() {
     }
 }
 
+
 // handle mousedown events
 function myDown(e) {
     // tell the browser we're handling this mouse event
@@ -132,7 +141,7 @@ function myDown(e) {
 
     // test each shape to see if mouse is inside
     dragok = false;
-    for (let i = 0; i < shapes.length; i++) {
+    for (let i = shapes.length - 1; i >= 0; i--) {
         let s = shapes[i];
         const dx = s.x - mx;
         const dy = s.y - my;
@@ -202,51 +211,60 @@ function myMove(e) {
 
 // Draw Text
 let i = 0;
-const infoText = document.getElementById('info_text');
 function onTextClick() {
     infoText.textContent = '입력중 . . .';
+    infoFlag.textContent = 'New Flag';
     drawTextArea();
     keyboard.disabled = false;
     keyboard.focus();
-    keyboard.placeholder = 'Typing... Enter!';
     i = 0;
+    keyboard.placeholder = hintText[i];
 }
 
 function drawText() {
     ctx.save();
     ctx.lineWidth = 1;
     ctx.fillStyle = 'black';
+    ctx.textAlign = 'center';
     ctx.font = '42px Arial';
-    ctx.fillText(dictText[0], 110, 135);
+    ctx.fillText(dictText[0], 197, 135);
     ctx.font = '30px Arial';
-    ctx.fillText('tempo = ' + dictText[1], 110, 200);
+    ctx.fillText('tempo = ' + dictText[1], 197, 200);
     ctx.font = '40px Arial';
-    ctx.fillText(dictText[2], 350, 165);
+    ctx.fillText(dictText[2], 651, 165);
     ctx.restore();
 }
 
+const hintText = ['곡 순서와 Key를 입력해주세요. 예시 : 1.E',
+    '곡의 템포를 입력해주세요. 예시 : 120',
+    'SongForm 을 입력해 주세요. 예시 : AABCABCC-rit'];
 const dictText = {}
+
 function enterkey() {
     if (window.event.keyCode == 13) {
         // 엔터키가 눌렸을 때
         if (i < 3) {
             dictText[i] = keyboard.value;
             i++;
+            keyboard.placeholder = hintText[i];
         }
 
         if (i == 3) {
-            infoText.textContent = '입력완료!';
+            infoText.textContent = 'New Text';
             drawText();
             keyboard.disabled = true;
             keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
         }
 
-        if (i > 3) {
+        if (i == 4) {
             if (keyboard.value != '') {
-                createFlag(keyboard.value, i);
+                createFlag(keyboard.value);
                 draw();
                 i++;
             }
+            infoFlag.textContent = 'New Flag';
+            keyboard.disabled = true;
+            keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
         }
         keyboard.value = ''
     }

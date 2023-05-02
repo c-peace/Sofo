@@ -145,6 +145,7 @@ canvas {
     font-size: 20px;
     color: var(--color-sizebar);
     box-sizing: border-box;
+    text-align: center;
     padding: 0px 20px 0px 20px;
 }
 
@@ -316,7 +317,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #flag_box {
-    height: 178px;
+    height: 166px;
     margin-top: 19px;
 }
 
