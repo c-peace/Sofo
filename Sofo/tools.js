@@ -80,7 +80,7 @@ function onFlagClick() {
     infoText.textContent = 'New Text';
     keyboard.disabled = false;
     keyboard.focus();
-    keyboard.placeholder = 'Typing... Enter!';
+    keyboard.placeholder = 'Flag의 이름을 입력해주세요. 예시 : I, A, B, C ...';
     i = 4;
 }
 
@@ -270,12 +270,23 @@ function enterkey() {
     }
 }
 
+const canvasSubmit = document.getElementById('canvasSubmit');
+ctxSubmit = canvasSubmit.getContext('2d')
+canvasSubmit.width = 1190;
+canvasSubmit.height = 1684;
+
+// Combine Canvas
+function combineCanvas() {
+    ctxSubmit.drawImage(canvas, 0, 0);
+    ctxSubmit.drawImage(canvasFlag, 0, 0);
+}
+
 // modal page
 function fullScreen() {
+    combineCanvas();
     const modal = document.querySelector('#modal');
 
-    const url = canvas.toDataURL();
-    console.dir(url);
+    const url = canvasSubmit.toDataURL();
     const Fullscreen = document.querySelector("#canvasFullscreen");
     Fullscreen.src = url;
 
@@ -288,15 +299,15 @@ function backScreen() {
     modal.style.display = 'none';
 }
 
-
 // download
 function onSaveClick() {
-    const url = canvas.toDataURL();
-    console.dir(url);
+    combineCanvas();
+    const url = canvasSubmit.toDataURL();
     const Fullscreen = document.querySelector("#canvasFullscreen");
     Fullscreen.src = url;
     const a = document.createElement("a");
     a.href = url;
     a.download = "musicScore.png";
     a.click();
+    document.body.removeChild(a);
 }

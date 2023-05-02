@@ -38,7 +38,7 @@
     display: none;
     background-color: rgba(0, 0, 0, 0.4);
     text-align: center;
-    
+    z-index: 3;
 }
 
 #modal_body {
@@ -133,6 +133,12 @@ canvas {
     background-color: var(--color-musicsheet);
     box-shadow: 0px 4px 4px #99836f;
     z-index: 1;
+}
+
+#canvasSubmit {
+    width: calc(595 / 969 * 90vh);
+    height: calc(842 / 969 * 90vh);
+    display: none;
 }
 
 
