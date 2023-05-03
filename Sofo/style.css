@@ -191,35 +191,46 @@ input::placeholder {
     border-radius: 25px;
 }
 
-#btn_complete {
-    display: flex;
-}
-
-#btn_complete img {
-    width: 30px;
-    height: 30px;
-    margin: 37px 0px 0px 30px;
-    cursor: pointer;
-}
-
-#complete {
-    width: 150px;
-    height: 40px;
-    margin: 30px 0px 0px 14px;
+#tools_box {
+    margin-top: 44px;
+    background-color: var(--color-beige-dark);
     border-radius: 15px;
+    width: 246px;
+    height: 148px;
+}
+
+#tools_name {
+    font-weight: bolder;
+    font-size: 22px;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 11px 0px 0px 23px;
+}
+
+#item_btnbox {
+    height: 96px;
+    width: 226px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 100px;
+    height: 35px;
+    border-radius: 12px;
     background-color: var(--color-beige-light);
-    border: 1px solid var(--color-beige-dark);
+    border: 1px solid #00000054;
     text-align: center;
     box-shadow: 0px 4px 4px #99836f;
     cursor: pointer;
-    font-size: x-large;
+    font-size: 20px;
 }
 
-#complete:hover {
+.btn:hover {
     background-color: var(--color-background);
 }
-
-
 
 .item_toolbox {
     background-color: var(--color-beige-dark);

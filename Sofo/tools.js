@@ -5,10 +5,23 @@ const imageInput = document.getElementById('upload');
 canvas.width = 1190;
 canvas.height = 1684;
 
+const canvasFlag = document.getElementById("canvasFlag");
+const ctxFlag = canvasFlag.getContext('2d');
+canvasFlag.width = 1190;
+canvasFlag.height = 1684;
+canvas.backScreen = 'transparent';
+
+function reset() {
+    clearCanvas();
+    drawTextArea();
+    clearCanvasFlag();
+}
 
 // draw text area in canvas
-ctx.fillStyle = "white"; // 색상명
-ctx.fillRect(0, 0, 1190, 1684);
+function clearCanvas() {
+    ctx.fillStyle = "white"; // 색상명
+    ctx.fillRect(0, 0, 1190, 1684);
+}
 function drawTextArea() {
     ctx.beginPath();
     ctx.strokeStyle = "#000000";
@@ -21,6 +34,7 @@ function drawTextArea() {
     ctx.lineTo(300, 220);
     ctx.stroke();
 }
+clearCanvas();
 drawTextArea();
 
 
@@ -55,12 +69,6 @@ imageInput.addEventListener('change', loadImage);
 
 
 // Draw Flag
-const canvasFlag = document.getElementById("canvasFlag");
-const ctxFlag = canvasFlag.getContext('2d');
-canvasFlag.width = 1190;
-canvasFlag.height = 1684;
-canvas.backScreen = 'transparent';
-
 let dragok = false;
 let startX;
 let startY;
@@ -86,7 +94,7 @@ function onFlagClick() {
 
 function deleteAll() {
     infoFlag.textContent = 'New Flag';
-    clear();
+    clearCanvasFlag();
     if (i == 4) {
         keyboard.disabled = true;
         keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
@@ -117,12 +125,12 @@ function circle(c) {
     ctxFlag.restore();
 }
 
-function clear() {
+function clearCanvasFlag() {
     ctxFlag.clearRect(0, 0, canvasFlag.width, canvasFlag.height);
 }
 
 function draw() {
-    clear();
+    clearCanvasFlag();
     for (let i = 0; i < shapes.length; i++) {
         circle(shapes[i]);
     }

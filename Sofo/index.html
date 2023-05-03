@@ -44,9 +44,15 @@
       </div>
 
       <div id="toolbox">
-        <div id="btn_complete">
-          <h1 id="complete" onclick="onSaveClick()">Complete</h1>
-          <img src="Assets/fullscreen.png" onclick="fullScreen()" />
+
+        <div id="tools_box">
+          <h1 class="tool_name" id="tools_name">Tools</h1>
+          <div id="item_btnbox">
+            <h1 class="btn" onclick="fullScreen()">view</h1>
+            <h1 class="btn" onclick="onSaveClick()">save</h1>
+            <h1 class="btn" id="btn2"onclick="reset()">reset</h1>
+            <h1 class="btn" id="btn2"onclick="reset()">help</h1>
+          </div>
         </div>
 
         <div class="item_toolbox" id="image_box">
@@ -86,10 +92,9 @@
             </div>
           </div>
         </div>
-        <div class="item_toolbox" id="source_box">
+        <!-- <div class="item_toolbox" id="source_box">
           <h1 class="tool_name">Source</h1>
-          <!-- 여기에는 source들이 추가 되면 javascript로 동적으로 박스들이 생성되게 만들 예정임. -->
-        </div>
+        </div> -->
       </div>
     </div>
     <script type="text/javascript" src="tools.js"></script>
