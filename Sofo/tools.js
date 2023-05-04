@@ -15,6 +15,7 @@ function reset() {
     clearCanvas();
     drawTextArea();
     resetFlag();
+    imageInput.value = '';
 }
 
 // draw text area in canvas
