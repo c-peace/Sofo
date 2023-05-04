@@ -191,31 +191,6 @@ input::placeholder {
     border-radius: 25px;
 }
 
-#tools_box {
-    margin-top: 44px;
-    background-color: var(--color-beige-dark);
-    border-radius: 15px;
-    width: 246px;
-    height: 148px;
-}
-
-#tools_name {
-    font-weight: bolder;
-    font-size: 22px;
-    margin: 0;
-    box-sizing: border-box;
-    padding: 11px 0px 0px 23px;
-}
-
-#item_btnbox {
-    height: 96px;
-    width: 226px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-}
-
 .btn {
     width: 100px;
     height: 35px;
@@ -226,10 +201,12 @@ input::placeholder {
     box-shadow: 0px 4px 4px #99836f;
     cursor: pointer;
     font-size: 20px;
+    transition: all 200ms;
 }
 
 .btn:hover {
     background-color: var(--color-background);
+    transform: translateY(2px);
 }
 
 .item_toolbox {
@@ -266,8 +243,12 @@ input::placeholder {
     background-color: transparent;
     margin-left: 10px;
     display: flex;
-    /* 나중에 javascript로로 추가시에만 cursor을 pointer 바꾸게 변경하기 */
     cursor : pointer;
+    transition: all 500ms;
+}
+
+.tool_ex:hover {
+    transform:translateX(8px);
 }
 
 .tool_ex h4{
@@ -330,7 +311,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 #image_box {
     height: 100px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 #flag_box {
@@ -350,8 +331,28 @@ input[type="range"]::-webkit-slider-thumb {
     margin-top: 19px;
 }
 
-#source_box {
-    height: 232px;
-    margin-top: 37px;
+#tools_box {
+    margin-top: 19px;
+    background-color: var(--color-beige-dark);
+    border-radius: 15px;
+    width: 246px;
+    height: 148px;
     margin-bottom: 10px;
+}
+
+#tools_name {
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 11px 0px 0px 23px;
+}
+
+#item_btnbox {
+    height: 96px;
+    width: 226px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 }

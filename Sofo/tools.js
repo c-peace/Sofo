@@ -22,6 +22,7 @@ function clearCanvas() {
     ctx.fillStyle = "white"; // 색상명
     ctx.fillRect(0, 0, 1190, 1684);
 }
+
 function drawTextArea() {
     ctx.beginPath();
     ctx.strokeStyle = "#000000";
@@ -92,9 +93,10 @@ function onFlagClick() {
     i = 4;
 }
 
-function deleteAll() {
+function resetFlag() {
     infoFlag.textContent = 'New Flag';
     clearCanvasFlag();
+    shapes.length = 0;
     if (i == 4) {
         keyboard.disabled = true;
         keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
@@ -102,8 +104,10 @@ function deleteAll() {
 }
 
 function createFlag(nameFlag) {
-    shapes.push({ x: 120, y: 1600, r: 26, strokeStyle: "black", fillStyle: "white", name: nameFlag, isDragging: false });
+    shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, r: 26, strokeStyle: "black", fillStyle: "white", name: nameFlag, isDragging: false });
 }
+
+
 
 function circle(c) {
     ctxFlag.save();
@@ -158,7 +162,6 @@ function myDown(e) {
         if (!dragok && dx * dx + dy * dy < s.r * s.r) {
             dragok = true;
             s.isDragging = true;
-
         }
     }
     // save the current mouse position
@@ -268,11 +271,11 @@ function enterkey() {
             if (keyboard.value != '') {
                 createFlag(keyboard.value);
                 draw();
-                i++;
+            } else {
+                infoFlag.textContent = 'New Flag'
+                keyboard.disabled = true;
+                keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
             }
-            infoFlag.textContent = 'New Flag';
-            keyboard.disabled = true;
-            keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
         }
         keyboard.value = ''
     }
@@ -290,7 +293,7 @@ function combineCanvas() {
 }
 
 // modal page
-function fullScreen() {
+function btn_view() {
     combineCanvas();
     const modal = document.querySelector('#modal');
 
@@ -308,7 +311,7 @@ function backScreen() {
 }
 
 // download
-function onSaveClick() {
+function btn_save() {
     combineCanvas();
     const url = canvasSubmit.toDataURL();
     const Fullscreen = document.querySelector("#canvasFullscreen");
@@ -318,4 +321,8 @@ function onSaveClick() {
     a.download = "musicScore.png";
     a.click();
     document.body.removeChild(a);
+}
+
+function btn_help() {
+    window.open('https://chrome-comte-f84.notion.site/Sofo-addef1adf0f0467fb5d56046929a4f46');
 }

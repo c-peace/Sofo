@@ -45,15 +45,7 @@
 
       <div id="toolbox">
 
-        <div id="tools_box">
-          <h1 id="tools_name">Tools</h1>
-          <div id="item_btnbox">
-            <h1 class="btn" onclick="fullScreen()">view</h1>
-            <h1 class="btn" onclick="onSaveClick()">save</h1>
-            <h1 class="btn" onclick="reset()">reset</h1>
-            <h1 class="btn" onclick="reset()">help</h1>
-          </div>
-        </div>
+
 
         <div class="item_toolbox" id="image_box">
           <h1 class="tool_name">Image</h1>
@@ -69,15 +61,15 @@
         <div class="item_toolbox" id="flag_box">
           <h1 class="tool_name">Flag</h1>
           <div class="tool" id="add_flag">
-            <div class="tool_ex">
+            <div class="tool_ex" onclick="onFlagClick()">
               <img src="Assets/square.png" />
-              <h4 id="info_flag" onclick="onFlagClick()">New Flag</h4>
+              <h4 id="info_flag">New Flag</h4>
             </div>
           </div>
           <div class="tool" id="size_flag">
-            <div class="tool_ex">
+            <div class="tool_ex" onclick="resetFlag()">
               <img src="Assets/square.png" />
-              <h4 onclick="deleteAll()">Reset Flag</h4>
+              <h4>Reset Flag</h4>
             </div>
             <p id="hint">• 드레그으로 Flag 이동.</p>
           </div>
@@ -92,11 +84,19 @@
             </div>
           </div>
         </div>
-        <!-- <div class="item_toolbox" id="source_box">
-          <h1 class="tool_name">Source</h1>
-        </div> -->
+
+        <div id="tools_box">
+          <h1 id="tools_name">Tools</h1>
+          <div id="item_btnbox">
+            <h1 class="btn" onclick="btn_view()">view</h1>
+            <h1 class="btn" onclick="btn_save()">save</h1>
+            <h1 class="btn" onclick="reset()">reset</h1>
+            <h1 class="btn" onclick="btn_help()">help</h1>
+          </div>
+        </div>
       </div>
     </div>
+
     <script type="text/javascript" src="tools.js"></script>
   </body>
 </html>
