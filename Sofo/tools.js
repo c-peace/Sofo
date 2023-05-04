@@ -14,7 +14,7 @@ canvas.backScreen = 'transparent';
 function reset() {
     clearCanvas();
     drawTextArea();
-    clearCanvasFlag();
+    resetFlag();
 }
 
 // draw text area in canvas
@@ -103,6 +103,10 @@ function resetFlag() {
     }
 }
 
+function clearCanvasFlag() {
+    ctxFlag.clearRect(0, 0, canvasFlag.width, canvasFlag.height);
+}
+
 function createFlag(nameFlag) {
     shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, r: 26, strokeStyle: "black", fillStyle: "white", name: nameFlag, isDragging: false });
 }
@@ -127,10 +131,6 @@ function circle(c) {
     ctxFlag.font = '40px Arial';
     ctxFlag.fillText(c.name, c.x, c.y + c.r * 1 / Math.PI + 2);
     ctxFlag.restore();
-}
-
-function clearCanvasFlag() {
-    ctxFlag.clearRect(0, 0, canvasFlag.width, canvasFlag.height);
 }
 
 function draw() {
