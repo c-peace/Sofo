@@ -319,11 +319,11 @@ function btn_save() {
     Fullscreen.src = url;
     const a = document.createElement("a");
     a.href = url;
-    a.download = "musicScore.png";
+    a.download = "Sofo_Score.png";
     a.click();
     document.body.removeChild(a);
 }
 
 function btn_help() {
-    window.open('https://chrome-comte-f84.notion.site/Sofo-addef1adf0f0467fb5d56046929a4f46');
+    window.open('https://chrome-comte-f84.notion.site/Sofo-Guide-64a48649ba6143e4ac3766d161796b86');
 }
