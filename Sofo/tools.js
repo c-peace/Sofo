@@ -17,11 +17,10 @@ const keyboard = document.querySelector('#keyboard');
 function reset() {
     clearCanvas();
     drawTextArea();
-    resetFlag();
+    resetInfo();
     imageInput.value = '';
-    infoKeyboard.value = '';
-    keyboard.value = '';
-    clearInfoText();
+    resetFlag();
+    resetText();
 }
 
 // draw text area in canvas
@@ -59,6 +58,11 @@ function drawInfoText(_event) {
 
 function clearInfoText() {
     ctx.fillRect(0, 0, 1190, 76);
+}
+
+function resetInfo() {
+    clearInfoText();
+    infoKeyboard.value = '';
 }
 
 infoKeyboard.addEventListener('change', drawInfoText);
@@ -269,6 +273,13 @@ function drawText() {
     ctx.font = '40px Arial';
     ctx.fillText(dictText[2], 651, 165);
     ctx.restore();
+}
+
+function resetText() {
+    infoText.textContent = 'New Text';
+    keyboard.value = '';
+    keyboard.disabled = true;
+    keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
 }
 
 const hintText = ['곡 순서와 Key를 입력해주세요. 예시 : 1.E',
