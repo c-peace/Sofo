@@ -2,6 +2,7 @@
 const canvas = document.querySelector('#canvasMain');
 const ctx = canvas.getContext('2d');
 const imageInput = document.getElementById('upload');
+const infoKeyboard = document.getElementById('info_keyboard');
 canvas.width = 1190;
 canvas.height = 1684;
 
@@ -11,11 +12,16 @@ canvasFlag.width = 1190;
 canvasFlag.height = 1684;
 canvas.backScreen = 'transparent';
 
+const keyboard = document.querySelector('#keyboard');
+
 function reset() {
     clearCanvas();
     drawTextArea();
     resetFlag();
     imageInput.value = '';
+    infoKeyboard.value = '';
+    keyboard.value = '';
+    clearInfoText();
 }
 
 // draw text area in canvas
@@ -38,6 +44,24 @@ function drawTextArea() {
 }
 clearCanvas();
 drawTextArea();
+
+
+// Draw Info - Music Score
+function drawInfoText(_event) {
+    clearInfoText();
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.fillStyle = 'black';
+    ctx.font = '600 30px Arial';
+    ctx.fillText(infoKeyboard.value, 96, 70);
+    ctx.restore();
+}
+
+function clearInfoText() {
+    ctx.fillRect(0, 0, 1190, 76);
+}
+
+infoKeyboard.addEventListener('change', drawInfoText);
 
 
 // load Music Score
@@ -83,7 +107,6 @@ const shapes = [];
 
 const infoFlag = document.getElementById('info_flag');
 const infoText = document.getElementById('info_text');
-const keyboard = document.querySelector('#keyboard');
 
 function onFlagClick() {
     infoFlag.textContent = '생성중 . . .';
@@ -96,6 +119,7 @@ function onFlagClick() {
 
 function resetFlag() {
     infoFlag.textContent = 'New Flag';
+    keyboard.value = '';
     clearCanvasFlag();
     shapes.length = 0;
     if (i == 4) {

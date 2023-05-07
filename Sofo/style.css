@@ -45,7 +45,6 @@
     background-color: transparent;
     width: 100%;
     height: 100%;
-    /* 이거 다시 짜기 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,24 +190,6 @@ input::placeholder {
     border-radius: 25px;
 }
 
-.btn {
-    width: 100px;
-    height: 35px;
-    border-radius: 12px;
-    background-color: var(--color-beige-light);
-    border: 1px solid #00000054;
-    text-align: center;
-    box-shadow: 0px 4px 4px #99836f;
-    cursor: pointer;
-    font-size: 20px;
-    transition: all 200ms;
-}
-
-.btn:hover {
-    background-color: var(--color-background);
-    transform: translateY(2px);
-}
-
 .item_toolbox {
     background-color: var(--color-beige-dark);
     border-radius: 15px;
@@ -273,35 +254,48 @@ label {
     background-color: transparent;
 }
 
-/********** Range Input Styles **********/
-/*Range Reset*/
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
+#info_keyboard {
+    width: 200px;
+    height: 30px;
+    background-color: var(--color-beige-light);
+    border: 1px solid #00000063;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-sizebar);
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    box-shadow: 0px 2px 2px #99836f;
+    transition: all 300ms;
+}
+
+#info_keyboard::placeholder {
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--color-sidebar);
+}
+
+#info_keyboard:hover {
+    border: 1px solid #000000;
+}
+
+.btn {
+    width: 100px;
+    height: 35px;
+    border-radius: 12px;
+    background-color: var(--color-beige-light);
+    border: 1px solid #00000054;
+    text-align: center;
+    box-shadow: 0px 4px 4px #99836f;
     cursor: pointer;
-    width: 150px;
-    margin-top: 14px;
+    font-size: 20px;
+    transition: all 200ms;
 }
 
-/* slider track */
-input[type="range"]::-webkit-slider-runnable-track {
-    background-color: var(--color-sizebar);
-    border-radius: 10px;
-    height: 3px;  
-}
-
-/* slider thumb */
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    margin-top: -5px; /* Centers thumb on the track */
-
-    /*custom styles*/
-    background-color: var(--color-sizebar);
-    height: 13px;
-    width: 13px;
-    border-radius: 6px;
+.btn:hover {
+    background-color: var(--color-background);
+    transform: translateY(2px);
 }
 
 #info_img {
@@ -309,9 +303,14 @@ input[type="range"]::-webkit-slider-thumb {
     overflow: hidden;
 }
 
+#Info_box {
+    height: 104px;
+    margin-top: 50px;
+}
+
 #image_box {
     height: 100px;
-    margin-top: 50px;
+    margin-top: 19px;
 }
 
 #flag_box {
