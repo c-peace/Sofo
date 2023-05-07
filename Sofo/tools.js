@@ -52,7 +52,7 @@ function drawInfoText(_event) {
     ctx.lineWidth = 1;
     ctx.fillStyle = 'black';
     ctx.font = '600 30px Arial';
-    ctx.fillText(infoKeyboard.value, 96, 70);
+    ctx.fillText(infoKeyboard.value, 96, 66);
     ctx.restore();
 }
 
@@ -65,7 +65,7 @@ function resetInfo() {
     infoKeyboard.value = '';
 }
 
-infoKeyboard.addEventListener('change', drawInfoText);
+infoKeyboard.addEventListener('keyup', drawInfoText);
 
 
 // load Music Score
