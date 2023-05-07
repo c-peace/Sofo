@@ -34,24 +34,25 @@
         </div>
         <label for="keyboard">
           <h4 id="name_keyboard">Keyboard</h4>
-          <input
-            type="text"
-            id="keyboard"
-            placeholder="Sofo - 찬양팀 세션을 위한 악보편집 서비스"
-            onkeyup="enterkey()"
-            disabled="True"
-          />
+          <input type="text" id="keyboard" placeholder="Sofo - 찬양팀 세션을 위한 악보편집 서비스" onkeyup="enterkey()" disabled="True"/>
         </label>
       </div>
 
       <div id="toolbox">
 
+        <div class="item_toolbox" id="Info_box">
+          <h1 class="tool_name">Info</h1>
+          <div class="tool">
+              <input type="text" id="info_keyboard" placeholder="2023.00.00 1부"/>
+          </div>
+        </div>
+
         <div class="item_toolbox" id="image_box">
           <h1 class="tool_name">Image</h1>
-          <div class="tool" id="upload_image">
+          <div class="tool">
             <label for="upload" class="tool_ex">
               <img src="Assets/add.png"/>
-              <h4 id="info_img">New Image</h4>
+              <h4 id="info_Score">New Image</h4>
             </label>
             <input type="file" accept="image/*" class="tool_ex" id="upload" />
           </div>
@@ -59,13 +60,13 @@
 
         <div class="item_toolbox" id="flag_box">
           <h1 class="tool_name">Flag</h1>
-          <div class="tool" id="add_flag">
+          <div class="tool">
             <div class="tool_ex" onclick="onFlagClick()">
               <img src="Assets/add.png"/>
               <h4 id="info_flag">New Flag</h4>
             </div>
           </div>
-          <div class="tool" id="size_flag">
+          <div class="tool">
             <div class="tool_ex" onclick="resetFlag()">
               <img src="Assets/reset.png" />
               <h4>Reset Flag</h4>
@@ -76,7 +77,7 @@
 
         <div class="item_toolbox" id="text_box">
           <h1 class="tool_name">Text</h1>
-          <div class="tool" id="add_text">
+          <div class="tool">
             <div class="tool_ex" onclick="onTextClick()">
               <img src="Assets/add.png"/>
               <h4 id="info_text">New Text</h4>
