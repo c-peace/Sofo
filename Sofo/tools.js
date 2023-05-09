@@ -51,7 +51,7 @@ function drawInfoText(_event) {
     ctx.save();
     ctx.lineWidth = 1;
     ctx.fillStyle = 'black';
-    ctx.font = '600 30px Arial';
+    ctx.font = '600 26px Arial';
     ctx.fillText(infoKeyboard.value, 96, 66);
     ctx.restore();
 }
@@ -271,7 +271,7 @@ function drawText() {
     ctx.font = '30px Arial';
     ctx.fillText('tempo = ' + dictText[1], 197, 200);
     ctx.font = '40px Arial';
-    ctx.fillText(dictText[2], 651, 165);
+    ctx.fillText(dictText[2], 700, 165);
     ctx.restore();
 }
 
