@@ -4,4 +4,5 @@
 
 ## Sample Image
 
-![Group 100](https://user-images.githubusercontent.com/85606158/232209885-687a02c4-1127-4ceb-b1ad-29cb56111f86.png)
+
+![53CA4EF2-0419-43A3-9B49-52CCCFBBE745](https://github.com/c-peace/Sofo-Project/assets/85606158/ce27f6fd-fb83-4b95-9d01-99f01b4acf9c)

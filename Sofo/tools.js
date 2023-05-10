@@ -66,7 +66,7 @@ function drawInfoText(_event) {
     ctx.save();
     ctx.lineWidth = 1;
     ctx.fillStyle = 'black';
-    ctx.font = '600 30px Arial';
+    ctx.font = '600 26px Arial';
     ctx.fillText(infoKeyboard.value, 96, 66);
     ctx.restore();
 }
@@ -281,6 +281,7 @@ function drawText(i, text) {
     ctx.lineWidth = 1;
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
+
     switch (i) {
         case 0:
             ctx.save();
@@ -405,4 +406,8 @@ function btn_save() {
 
 function btn_help() {
     window.open('https://chrome-comte-f84.notion.site/Sofo-Guide-64a48649ba6143e4ac3766d161796b86');
+}
+
+function btn_feedback() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSegiRFCoM7ZomJR2cIKwV1h_4cxyggZgjNm6Y59r9K8qtfl5A/viewform?usp=sf_link');
 }
