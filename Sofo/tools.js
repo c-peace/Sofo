@@ -40,10 +40,25 @@ function drawTextArea() {
     ctx.moveTo(300, 80);
     ctx.lineTo(300, 220);
     ctx.stroke();
+    drawTextHint();
 }
 clearCanvas();
 drawTextArea();
 
+function drawTextHint() {
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.fillStyle = '#888888';
+    ctx.textAlign = 'center';
+
+    ctx.font = '42px Arial';
+    ctx.fillText('1. E', 197, 135);
+    ctx.font = '30px Arial';
+    ctx.fillText('tempo = ' + '000', 197, 200);
+    ctx.font = '40px Arial';
+    ctx.fillText('AABCABCC - rit', 651, 165);
+    ctx.restore();
+}
 
 // Draw Info - Music Score
 function drawInfoText(_event) {
@@ -261,17 +276,42 @@ function onTextClick() {
     keyboard.placeholder = hintText[i];
 }
 
-function drawText() {
+function drawText(i, text) {
     ctx.save();
     ctx.lineWidth = 1;
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
-    ctx.font = '42px Arial';
-    ctx.fillText(dictText[0], 197, 135);
-    ctx.font = '30px Arial';
-    ctx.fillText('tempo = ' + dictText[1], 197, 200);
-    ctx.font = '40px Arial';
-    ctx.fillText(dictText[2], 651, 165);
+    switch (i) {
+        case 0:
+            ctx.save();
+            ctx.fillStyle = 'white';
+            ctx.fillRect(96, 82, 202, 71);
+            ctx.restore();
+
+            ctx.font = '42px Arial';
+            ctx.fillText(text, 197, 135);
+            break;
+
+        case 1:
+            ctx.save();
+            ctx.fillStyle = 'white';
+            ctx.fillRect(96, 157, 202, 61);
+            ctx.restore();
+
+            ctx.font = '30px Arial';
+            ctx.fillText('tempo = ' + text, 197, 200);
+            break;
+
+        default:
+            ctx.save();
+            ctx.fillStyle = 'white';
+            ctx.fillRect(302, 82, 792, 136);
+            ctx.restore();
+
+            ctx.font = '40px Arial';
+            ctx.fillText(text, 700, 165);
+            break;
+    }
     ctx.restore();
 }
 
@@ -285,20 +325,24 @@ function resetText() {
 const hintText = ['곡 순서와 Key를 입력해주세요. 예시 : 1.E',
     '곡의 템포를 입력해주세요. 예시 : 120',
     'SongForm 을 입력해 주세요. 예시 : AABCABCC-rit'];
+
 const dictText = {}
 
 function enterkey() {
+
+    if (i < 4) {
+        drawText(i, keyboard.value);
+    }
+
     if (window.event.keyCode == 13) {
         // 엔터키가 눌렸을 때
         if (i < 3) {
-            dictText[i] = keyboard.value;
             i++;
             keyboard.placeholder = hintText[i];
         }
 
         if (i == 3) {
             infoText.textContent = 'New Text';
-            drawText();
             keyboard.disabled = true;
             keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
         }
