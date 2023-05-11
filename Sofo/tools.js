@@ -152,35 +152,33 @@ function clearCanvasFlag() {
 }
 
 function createFlag(nameFlag) {
-    shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, r: 26, strokeStyle: "black", fillStyle: "white", name: nameFlag, isDragging: false });
+    shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, 
+        width: 54, height: 54, strokeStyle: "red", fillStyle: "white", name: nameFlag, isDragging: false });
 }
 
 
 
-function circle(c) {
+function rect(r) {
     ctxFlag.save();
     ctxFlag.beginPath();
-    // outline
-    ctxFlag.lineWidth = 8;
-    ctxFlag.strokeStyle = c.strokeStyle;
-    ctxFlag.arc(c.x, c.y, c.r, 0, 2 * Math.PI);
-    ctxFlag.stroke();
     // inner fill
-    ctxFlag.fillStyle = c.fillStyle;
-    ctxFlag.fill();
+    ctxFlag.fillStyle = r.fillStyle;
+    ctxFlag.fillRect(r.x, r.y, r.width, r.height);
+    // outline
+    ctxFlag.lineWidth = 3;
+    ctxFlag.strokeRect(r.x, r.y, r.width, r.height);
     // text
     ctxFlag.textAlign = 'center';
-    ctxFlag.lineWidth = 1;
-    ctxFlag.fillStyle = c.strokeStyle;
+    ctxFlag.fillStyle = r.strokeStyle;
     ctxFlag.font = '40px Arial';
-    ctxFlag.fillText(c.name, c.x, c.y + c.r * 1 / Math.PI + 2);
+    ctxFlag.fillText(r.name, r.x + 27, r.y + 41);
     ctxFlag.restore();
 }
 
 function draw() {
     clearCanvasFlag();
     for (let i = 0; i < shapes.length; i++) {
-        circle(shapes[i]);
+        rect(shapes[i]);
     }
 }
 
@@ -202,11 +200,17 @@ function myDown(e) {
         const dx = s.x - mx;
         const dy = s.y - my;
 
-        // test if the mouse is inside this circle
-        if (!dragok && dx * dx + dy * dy < s.r * s.r) {
+        if (
+            !dragok &&
+            mx > s.x &&
+            mx < s.x + s.width &&
+            my > s.y &&
+            my < s.y + s.height
+          ) {
+            // if yes, set that rects isDragging=true
             dragok = true;
             s.isDragging = true;
-        }
+          }
     }
     // save the current mouse position
     startX = mx;
@@ -350,8 +354,12 @@ function enterkey() {
 
         if (i == 4) {
             if (keyboard.value != '') {
-                createFlag(keyboard.value);
-                draw();
+                if (keyboard.value.length > 2) {
+                    alert('Flag는 최대 두 글자까지 가능합니다.')
+                } else {
+                    createFlag(keyboard.value);
+                    draw();
+                }
             } else {
                 infoFlag.textContent = 'New Flag'
                 keyboard.disabled = true;
