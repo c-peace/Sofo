@@ -9,16 +9,18 @@
     <title>Sofo</title>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELRYNM6ZE8"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELRYNM6ZE8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-ELRYNM6ZE8');
-    </script>
+    </script> -->
+
   </head>
 
   <body>
+    <!-- modal page -->
     <div id="modal" onclick="backScreen()">
       <div id="modal_body">
         <img src="" alt="미리보기" id="canvasFullscreen" />
@@ -26,89 +28,37 @@
     </div>
 
     <div class="container">
+      <!-- side bar -->
       <div id="sidebar">
-        <h1 class="item_sidebar" id="logo">Sofo</h1>
-        <p class="item_sidebar" id="slogan">
-          " 찬양팀 세션들이<br />편하게 소통할 수 있도록<br />돕는 것이
-          목표입니다. "
-        </p>
-          <h3 class="item_sidebar" id="developer">Choi peace</h3>
+        <div>
+          <h1 id="logo">Sofo</h1>
+          <p id="version">2.0</p>
+        </div>
+        <div id="link_box">
+          <h1 class="link_item" onclick="btn_home()">Home</h1>
+          <h1 class="link_item" onclick="btn_sample()">Sample</h1>
+          <h1 class="link_item" onclick="btn_feedback()">Feed Back</h1>
+          <h1 class="link_item">Tutorial</h1>
+        </div>
+        <h3 id="developer">Choi peace</h3>
       </div>
 
+      <!-- workspace -->
       <div id="workspace">
         <div id="canvasBox">
           <canvas id="canvasFlag"></canvas>
           <canvas id="canvasMain"></canvas>
           <canvas id="canvasSubmit"></canvas>
         </div>
-        <label for="keyboard">
-          <h4 id="name_keyboard">Keyboard</h4>
-          <input type="text" id="keyboard" placeholder="Sofo - 찬양팀 세션을 위한 악보편집 서비스" onkeyup="enterkey()" disabled="True"/>
-        </label>
+        <div id="item_btnbox">
+          <h1 class="btn" onclick="btn_view()">View</h1>
+          <h1 class="btn" onclick="btn_save()">Save</h1>
+          <h1 class="btn" onclick="reset()">Reset</h1>
+        </div>
       </div>
 
+      <!-- toolbox -->
       <div id="toolbox">
-
-        <div class="item_toolbox" id="Info_box">
-          <h1 class="tool_name">Info</h1>
-          <div class="tool">
-              <input type="text" id="info_keyboard" placeholder="2023.00.00 1부"/>
-          </div>
-        </div>
-
-        <div class="item_toolbox" id="image_box">
-          <h1 class="tool_name">Image</h1>
-          <div class="tool">
-            <label for="upload" class="tool_ex">
-              <img src="Assets/add.png"/>
-              <h4 id="info_Score">New Image</h4>
-            </label>
-            <input type="file" accept="image/*" class="tool_ex" id="upload" />
-          </div>
-        </div>
-
-        <div class="item_toolbox" id="flag_box">
-          <h1 class="tool_name">Flag</h1>
-          <div class="tool">
-            <div class="tool_ex" onclick="onFlagClick()">
-              <img src="Assets/add.png"/>
-              <h4 id="info_flag">New Flag</h4>
-            </div>
-          </div>
-          <div class="tool">
-            <div class="tool_ex" onclick="resetFlag()">
-              <img src="Assets/reset.png" />
-              <h4>Reset Flag</h4>
-            </div>
-            <p id="hint">• 드레그으로 Flag 이동.</p>
-          </div>
-        </div>
-
-        <div class="item_toolbox" id="text_box">
-          <h1 class="tool_name">Text</h1>
-          <div class="tool">
-            <div class="tool_ex" onclick="onTextClick()">
-              <img src="Assets/add.png"/>
-              <h4 id="info_text">New Text</h4>
-            </div>
-          </div>
-        </div>
-
-        <div id="tools_box">
-          <h1 id="tools_name">Tools</h1>
-          <div id="item_btnbox">
-            <h1 class="btn" onclick="btn_view()">View</h1>
-            <h1 class="btn" onclick="btn_save()">Save</h1>
-            <h1 class="btn" onclick="reset()">Reset</h1>
-            <h1 class="btn" onclick="btn_help()">Guide</h1>
-          </div>
-        </div>
-
-        <div id="info_box" onclick="btn_feedback()">
-          <img src="Assets/loading.png" id="img_feedback">
-          <h1 id="feedback">Feed Back</h1>
-        </div>
-
       </div>
     </div>
 
