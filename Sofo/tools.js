@@ -143,7 +143,7 @@ function resetFlag() {
     shapes.length = 0;
     if (i == 4) {
         keyboard.disabled = true;
-        keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
+        keyboard.placeholder = 'Sofo - 찬양팀 인도자를 위한 악보편집 서비스';
     }
 }
 
@@ -324,7 +324,7 @@ function resetText() {
     infoText.textContent = 'New Text';
     keyboard.value = '';
     keyboard.disabled = true;
-    keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
+    keyboard.placeholder = 'Sofo - 찬양팀 인도자를 위한 악보편집 서비스';
 }
 
 const hintText = ['곡 순서와 Key를 입력해주세요. 예시 : 1.E',
@@ -349,7 +349,7 @@ function enterkey() {
         if (i == 3) {
             infoText.textContent = 'New Text';
             keyboard.disabled = true;
-            keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
+            keyboard.placeholder = 'Sofo - 찬양팀 인도자를 위한 악보편집 서비스';
         }
 
         if (i == 4) {
@@ -363,7 +363,7 @@ function enterkey() {
             } else {
                 infoFlag.textContent = 'New Flag'
                 keyboard.disabled = true;
-                keyboard.placeholder = 'Sofo - 찬양팀 세션을 위한 악보편집 서비스';
+                keyboard.placeholder = 'Sofo - 찬양팀 인도자를 위한 악보편집 서비스';
             }
         }
         keyboard.value = ''
