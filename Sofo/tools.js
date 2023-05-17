@@ -281,6 +281,7 @@ function onTextClick() {
     keyboard.focus();
     i = 0;
     keyboard.placeholder = hintText[i];
+    stopTextEdit();
 }
 areabtn = document.querySelector('.areabtn');
 function onEditTextClick() {
