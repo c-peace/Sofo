@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="Sofo/style.css" rel="stylesheet" />
-    <link href="Assets/Sofo.png" rel="shortcut icon" type="image/x-icon">
+    <link href="Sofo/Assets/Sofo.png" rel="shortcut icon" type="image/x-icon">
     <title>Sofo</title>
 
     <!-- Google tag (gtag.js) -->
@@ -19,7 +19,15 @@
   </head>
 
   <body>
-    <div id="modal" onclick="backScreen()">
+    <div id="inform_modal" onclick="closeInform()">
+      <div id="inform">
+        <h1>Inform !</h1>
+        <h4>Sofo의 New 기능!! <br> Text Edit 기능이 추가되었습니다!</h4>
+        <p>아무 곳이나 클릭하세요.</p>
+      </div>
+    </div>
+
+    <div id="pre_modal" onclick="backScreen()">
       <div id="modal_body">
         <img src="" alt="미리보기" id="canvasFullscreen" />
       </div>
@@ -37,9 +45,14 @@
 
       <div id="workspace">
         <div id="canvasBox">
-          <canvas id="canvasFlag"></canvas>
-          <canvas id="canvasMain"></canvas>
-          <canvas id="canvasSubmit"></canvas>
+          <div class="inCanvasBox areabtn">
+            <div class="inCanvasBox" id="area_key" onclick="click_Key()"></div>
+            <div class="inCanvasBox" id="area_tempo" onclick="click_tempo()"></div>
+            <div class="inCanvasBox" id="area_routine" onclick="click_routine()"></div>
+          </div>
+          <canvas class="inCanvasBox" id="canvasFlag"></canvas>
+          <canvas class="inCanvasBox" id="canvasMain"></canvas>
+          <canvas class="inCanvasBox" id="canvasSubmit"></canvas>
         </div>
         <label for="keyboard">
           <h4 id="name_keyboard">Keyboard</h4>
@@ -92,6 +105,12 @@
               <h4 id="info_text">New Text</h4>
             </div>
           </div>
+          <div class="tool">
+            <div class="tool_ex" onclick="onEditTextClick()">
+              <img src="Sofo/Assets/edit.png"/>
+              <h4 id="info_textedit">Edit Text</h4>
+            </div>
+          </div>
         </div>
 
         <div id="tools_box">
@@ -100,7 +119,7 @@
             <h1 class="btn" onclick="btn_view()">View</h1>
             <h1 class="btn" onclick="btn_save()">Save</h1>
             <h1 class="btn" onclick="reset()">Reset</h1>
-            <h1 class="btn" onclick="btn_help()">Guide</h1>
+            <h1 class="btn" onclick="btn_guide()">Guide</h1>
           </div>
         </div>
 

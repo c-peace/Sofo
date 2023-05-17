@@ -21,6 +21,7 @@ function reset() {
     imageInput.value = '';
     resetFlag();
     resetText();
+    stopTextEdit();
 }
 
 // draw text area in canvas
@@ -126,6 +127,7 @@ const shapes = [];
 
 const infoFlag = document.getElementById('info_flag');
 const infoText = document.getElementById('info_text');
+const infoTextEdit = document.getElementById('info_textedit');
 
 function onFlagClick() {
     infoFlag.textContent = '생성중 . . .';
@@ -272,12 +274,54 @@ function myMove(e) {
 let i = 0;
 function onTextClick() {
     infoText.textContent = '입력중 . . .';
+    infoTextEdit.textContent = 'Edit Text';
     infoFlag.textContent = 'New Flag';
     drawTextArea();
     keyboard.disabled = false;
     keyboard.focus();
     i = 0;
     keyboard.placeholder = hintText[i];
+}
+areabtn = document.querySelector('.areabtn');
+function onEditTextClick() {
+    areabtn.style.display = 'block';
+    infoText.textContent = 'New Text';
+    infoTextEdit.textContent = '수정중 . . .';
+    infoFlag.textContent = 'New Flag';
+    i = 0;
+    keyboard.placeholder = '수정을 원하는 공간을 클릭하세요.';
+}
+
+function stopTextEdit() {
+    areabtn.style.display = 'none';
+    infoTextEdit.textContent = 'Edit Text';
+    keyboard.disabled = true;
+    keyboard.placeholder = 'Sofo - 찬양팀 인도자를 위한 악보편집 서비스';
+}
+
+const hintTextEdit = ['곡 순서와 Key를 입력한 후 Enter!',
+    '곡의 템포를 입력한 후 Enter!',
+    'SongForm 을 입력한 후 Enter!'];
+
+function click_Key() {
+    i = 5;
+    keyboard.disabled = false;
+    keyboard.focus();
+    keyboard.placeholder = hintTextEdit[0];
+}
+
+function click_tempo() {
+    i = 6;
+    keyboard.disabled = false;
+    keyboard.focus();
+    keyboard.placeholder = hintTextEdit[1];
+}
+
+function click_routine() {
+    i = 7;
+    keyboard.disabled = false;
+    keyboard.focus();
+    keyboard.placeholder = hintTextEdit[2];
 }
 
 function drawText(i, text) {
@@ -327,9 +371,9 @@ function resetText() {
     keyboard.placeholder = 'Sofo - 찬양팀 인도자를 위한 악보편집 서비스';
 }
 
-const hintText = ['곡 순서와 Key를 입력해주세요. 예시 : 1.E',
-    '곡의 템포를 입력해주세요. 예시 : 120',
-    'SongForm 을 입력해 주세요. 예시 : AABCABCC-rit'];
+const hintText = ['곡 순서와 Key를 입력한 후 Enter! (예시 : 1.E)',
+    '곡의 템포를 입력한 후 Enter! (예시 : 120)',
+    'SongForm 을 입력한 후 Enter! (예시 : AABCABCC-rit)'];
 
 const dictText = {}
 
@@ -366,6 +410,10 @@ function enterkey() {
                 keyboard.placeholder = 'Sofo - 찬양팀 인도자를 위한 악보편집 서비스';
             }
         }
+        if (i >= 5) {
+            drawText(i - 5, keyboard.value);
+            stopTextEdit();
+        }
         keyboard.value = ''
     }
 }
@@ -381,10 +429,11 @@ function combineCanvas() {
     ctxSubmit.drawImage(canvasFlag, 0, 0);
 }
 
-// modal page
+// pre_modal page
 function btn_view() {
+    stopTextEdit();
     combineCanvas();
-    const modal = document.querySelector('#modal');
+    const modal = document.querySelector('#pre_modal');
 
     const url = canvasSubmit.toDataURL();
     const Fullscreen = document.querySelector("#canvasFullscreen");
@@ -394,9 +443,13 @@ function btn_view() {
 }
 
 function backScreen() {
-    const modal = document.querySelector('#modal');
-
+    const modal = document.querySelector('#pre_modal');
     modal.style.display = 'none';
+}
+
+function closeInform() {
+    const inform = document.querySelector('#inform_modal');
+    inform.style.display = 'none';
 }
 
 // download
@@ -412,7 +465,7 @@ function btn_save() {
     document.body.removeChild(a);
 }
 
-function btn_help() {
+function btn_guide() {
     window.open('https://chrome-comte-f84.notion.site/Sofo-Guide-64a48649ba6143e4ac3766d161796b86');
 }
 
