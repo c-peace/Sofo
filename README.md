@@ -6,4 +6,4 @@ Link : https://sofomusic.com
 ## Sample Image
 
 
-![53CA4EF2-0419-43A3-9B49-52CCCFBBE745](https://github.com/c-peace/Sofo-Project/assets/85606158/ce27f6fd-fb83-4b95-9d01-99f01b4acf9c)
+![스크린샷, 2023-05-19 20-37-08](https://github.com/c-peace/Sofo/assets/85606158/2ee4112f-ed25-4047-9f14-c52b498a6621)
