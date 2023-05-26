@@ -180,7 +180,7 @@ canvas {
     height: 35px;
     border-radius: 12px;
     background-color: var(--color-beige-light);
-    border: 1px solid #00000054;
+    border: 1px solid #D2BDAB;
     text-align: center;
     box-shadow: 0px 4px 4px #99836f;
     cursor: pointer;
