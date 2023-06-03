@@ -4,6 +4,13 @@ const ctx = canvas.getContext('2d');
 canvas.width = 1190;
 canvas.height = 1684;
 
+const image = new Image();
+image.src = '../Sofo/Assets/defaultSheet.png';
+image.onload = function(){
+    ctx.drawImage(image, 0, 0);
+}
+
+
 const canvasFlag = document.getElementById("canvasFlag");
 const ctxFlag = canvasFlag.getContext('2d');
 canvasFlag.width = 1190;
@@ -16,7 +23,7 @@ const sheetSlide = [];
 
 const a = document.createElement('p');
   a.innerHTML = '안녕';
-  document.querySelector('#test').appendChild(a);
+  document.querySelector('#toolbox').appendChild(a);
 
 function addSlide(source) {
     sheetSlide.push({
