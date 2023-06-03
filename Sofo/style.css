@@ -126,7 +126,7 @@
 
 /* about WorkSpace */
 #workspace {
-    width: calc(100% - 548px);
+    width: calc(100% - 504px);
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -144,6 +144,7 @@
 
 canvas {
     position: absolute;
+    border-radius: 10px;
 }
 
 #canvasFlag {
@@ -196,9 +197,14 @@ canvas {
 
 /* about ToolBox */
 #toolbox {
-    width: 274px;
+    width: 230px;
     height: 100vh;
     overflow-y: scroll;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 40px 0 16px 0;
 }
 
 #toolbox::-webkit-scrollbar {
@@ -208,4 +214,16 @@ canvas {
 #toolbox::-webkit-scrollbar-thumb {
     background: linear-gradient(var(--color-beige-dark),#fc5050);
     border-radius: 25px;
+}
+
+#addSlide {
+    box-shadow: 0px 3px 3px #c7b09b;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+#addSlide:hover {
+    transform: scale(98%);
+    box-shadow: 0px 0px 0px 2px #fc5050;
 }

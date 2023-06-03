@@ -1,5 +1,5 @@
 // basic setting
-const canvas = document.querySelector('#canvasMain');
+const canvas = document.getElementById('canvasMain');
 const ctx = canvas.getContext('2d');
 canvas.width = 1190;
 canvas.height = 1684;
@@ -10,6 +10,22 @@ canvasFlag.width = 1190;
 canvasFlag.height = 1684;
 canvasFlag.backScreen = 'transparent';
 
+
+// sheetSlide 안에는 이미지 파일들을 저장해 두는 것으로 설계를 한다.
+const sheetSlide = [];
+
+const a = document.createElement('p');
+  a.innerHTML = '안녕';
+  document.querySelector('#test').appendChild(a);
+
+function addSlide(source) {
+    sheetSlide.push({
+        img: source
+    })
+}
+
+
+// AREA --- canvasSubmit ---
 const canvasSubmit = document.getElementById('canvasSubmit');
 ctxSubmit = canvasSubmit.getContext('2d')
 canvasSubmit.width = 1190;
@@ -52,6 +68,8 @@ function btn_save() {
     document.body.removeChild(a);
 }
 
+
+// btn Box url
 function btn_home() {
     window.open('https://chrome-comte-f84.notion.site/Sofo-addef1adf0f0467fb5d56046929a4f46');
 }
