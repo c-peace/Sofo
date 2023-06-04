@@ -46,11 +46,14 @@
       <!-- workspace -->
       <div id="workspace">
         <div id="canvasBox">
-          <div class="canvasBtn" id="info_music"><t></t> Num:1 <t></t> Key:E <t></t> Tempo = 000 <t></t></div>
-          <div class="canvasBtn" id="info_sheet">Info</div>
-          <div class="canvasBtn" id="songform">Songform</div>
-          <div class="canvasBtn" id="image">Image</div>
-          <div class="canvasBtn" id="flag">Flag</div>
+          <div class="canvasBtn" id="info_music"></div>
+          <div class="canvasBtn" id="info_sheet"></div>
+          <div class="canvasBtn" id="songform"></div>
+          <label for="upload">
+            <div class="canvasBtn" id="image">Image</div>
+            <input type="file" accept="image/*" id="upload" style="display: none;"/>
+          </label>
+          <div class="canvasBtn" id="flag" onclick="createFlag()">Flag</div>
 
           <canvas id="canvasFlag"></canvas>
           <canvas id="canvasMain"></canvas>

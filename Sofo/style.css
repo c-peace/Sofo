@@ -107,7 +107,7 @@
     font-weight: normal;
     color: var(--color-background);
     transition: all 250ms;
-    cursor: pointer;
+    cursor: default;
 }
 
 .link_item:hover {
@@ -144,25 +144,23 @@
 
 .canvasBtn {
     position: absolute;
-    background-color: white;
-    border-radius: 3px;
-    border: 1px solid black;
+    border-radius: 6px;
     z-index: 3;
     font-size: calc(14 / 969 * 100vh);
     font-weight:600;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: default;
+    cursor: pointer;
+    transition: all 200ms;
 }
 
 .canvasBtn:hover {
-    background-color: var(--color-beige-slogan);
+    background-color: #25252573;
 }
 
 #info_music {
-    left: calc(33 / 969 * 100vh);
+    left: calc(28 / 969 * 100vh);
     top: calc(20 / 969 * 100vh);
     width: calc(192 / 969 * 100vh);
     height: calc(25 / 969 * 100vh);
@@ -170,33 +168,36 @@
 }
 
 #info_sheet {
-    right: calc(33 / 969 * 100vh);
+    right: calc(28 / 969 * 100vh);
     top: calc(20 / 969 * 100vh);
-    width: calc(40 / 969 * 100vh);
+    width: calc(70 / 969 * 100vh);
     height: calc(25 / 969 * 100vh);
 }
 
 #songform {
     left: calc(42 / 969 * 100vh);
-    top: calc(62 / 969 * 100vh);
-    width: calc(63 / 969 * 100vh);
-    height: calc(20 / 969 * 100vh);
+    top: calc(60 / 969 * 100vh);
+    width: calc(510 / 969 * 100vh);
+    height: calc(24 / 969 * 100vh);
     font-size: calc(12 / 969 * 100vh);
 }
 
 #image {
     left: calc(474 / 969 * 100vh);
-    top: calc(805 / 969 * 100vh);
+    top: calc(810 / 969 * 100vh);
     width: calc(54 / 969 * 100vh);
-    height: calc(25 / 969 * 100vh);
+    height: calc(24 / 969 * 100vh);
+    border: 1px solid black;
     border-radius: 3px 0 0 3px;
+    
 }
 
 #flag {
     left: calc(529 / 969 * 100vh);
-    top: calc(805 / 969 * 100vh);
+    top: calc(810 / 969 * 100vh);
     width: calc(48 / 969 * 100vh);
-    height: calc(25 / 969 * 100vh);
+    height: calc(24 / 969 * 100vh);
+    border: 1px solid black;
     border-radius: 0 3px 3px 0;
 }
 
@@ -242,7 +243,7 @@ canvas {
     border: 1px solid #D2BDAB;
     text-align: center;
     box-shadow: 0px 4px 4px #99836f;
-    cursor: pointer;
+    cursor: default;
     font-size: 20px;
     transition: all 200ms;
 }
