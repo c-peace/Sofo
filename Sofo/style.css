@@ -150,13 +150,12 @@
     font-weight:600;
     display: flex;
     justify-content: center;
-    align-items: center;
     cursor: pointer;
     transition: all 200ms;
 }
 
 .canvasBtn:hover {
-    background-color: #25252573;
+    background-color: #3794ff53;
 }
 
 #info_music {
@@ -184,23 +183,29 @@
 
 #image {
     left: calc(474 / 969 * 100vh);
-    top: calc(810 / 969 * 100vh);
+    bottom: calc(10 / 969 * 100vh);
     width: calc(54 / 969 * 100vh);
     height: calc(24 / 969 * 100vh);
     border: 1px solid black;
     border-radius: 3px 0 0 3px;
+    font-size: calc(15 / 969 * 100vh);
     
 }
 
 #flag {
     left: calc(529 / 969 * 100vh);
-    top: calc(810 / 969 * 100vh);
-    width: calc(48 / 969 * 100vh);
-    height: calc(24 / 969 * 100vh);
+    bottom: calc(10 / 969 * 100vh);
+    width: calc(53 / 969 * 100vh);
+    height: calc(26 / 969 * 100vh);
     border: 1px solid black;
     border-radius: 0 3px 3px 0;
 }
 
+select:focus {
+    outline: none;
+}
+
+/* canvas */
 canvas {
     position: absolute;
     border-radius: 10px;

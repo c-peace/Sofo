@@ -47,13 +47,26 @@
       <div id="workspace">
         <div id="canvasBox">
           <div class="canvasBtn" id="info_music"></div>
-          <div class="canvasBtn" id="info_sheet"></div>
+          <div class="canvasBtn" id="info_sheet" onclick="inputInfoSheet()"></div>
           <div class="canvasBtn" id="songform"></div>
+
           <label for="upload">
             <div class="canvasBtn" id="image">Image</div>
             <input type="file" accept="image/*" id="upload" style="display: none;"/>
           </label>
-          <div class="canvasBtn" id="flag" onclick="createFlag()">Flag</div>
+
+          <label for="flag" id="label_select">
+            <select name="flags" class="canvasBtn" id="flag" onchange="createFlag(value)">
+              <option value="flag" hidden>Flag</option>
+              <option value="In">In</option>
+              <option value="I">I</option>
+              <option value="O">O</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select>
+          </label>
 
           <canvas id="canvasFlag"></canvas>
           <canvas id="canvasMain"></canvas>

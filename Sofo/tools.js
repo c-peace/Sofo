@@ -22,17 +22,33 @@ function startForm() {
         // ctx.fillStyle = '#000000';
         // ctx.fillText('Num : 1    Key : E    Tempo = 000', 248, 73);
 
-        // ctx.textAlign = 'right';
-        // ctx.font = 'bold 20px Arial';
-        // ctx.fillText('2023.00.00 1부', 1134, 73);
     }
 }
 startForm();
 
 function reset() {
-    clearImage();
+    startForm();
     imageInput.value = '';
     resetFlag();
+}
+
+// Info Sheet
+function drawInfoSheet(value) {
+    ctx.fillStyle = 'white';
+    ctx.fillRect(800,40,1134,73);
+    ctx.fillStyle = '#000000';
+    ctx.textAlign = 'right';
+    ctx.font = 'bold 20px Arial';
+    ctx.fillText(value, 1134, 73);
+}
+
+function inputInfoSheet() {
+    let today = new Date();
+    let info = prompt("악보 정보를 입력하세요.",today.toLocaleDateString());
+    if (info != null) {
+        drawInfoSheet(info);
+    }
+
 }
 
 // load Music Score
@@ -92,10 +108,13 @@ function clearCanvasFlag() {
     ctxFlag.clearRect(0, 0, canvasFlag.width, canvasFlag.height);
 }
 
-function createFlag() {
-    shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, 
-        width: 54, height: 54, strokeStyle: "red", fillStyle: "white", name: 'A', isDragging: false });
-    draw();
+function createFlag(name) {
+    if (name != 'Flag') {
+        shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, 
+            width: 54, height: 54, strokeStyle: "red", fillStyle: "white", name: name, isDragging: false });
+        draw();
+        document.querySelector('select').value = 'flag';
+    }
 }
 
 function rect(r) {
