@@ -5,10 +5,21 @@ canvas.width = 1190;
 canvas.height = 1684;
 
 const image = new Image();
-image.src = '../Sofo/Assets/defaultSheet.png';
-image.onload = function(){
+image.src = '../Sofo/Assets/sheetSlogan.png';
+image.onload = function () {
     ctx.drawImage(image, 0, 0);
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 2;
+    ctx.moveTo(86, 166);
+    ctx.lineTo(1104, 166);
+    ctx.stroke();
+    ctx.fillStyle = '#888888';
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 26px Arial';
+    ctx.fillText('4 - A - B - 2 - A\' - B - B - B - rit엔딩', 595, 150);
 }
+
+
 
 
 const canvasFlag = document.getElementById("canvasFlag");
