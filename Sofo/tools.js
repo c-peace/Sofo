@@ -7,21 +7,9 @@ const imageInput = document.getElementById('upload');
 
 function startForm() {
     const image = new Image();
-    image.src = '../Sofo/Assets/Sofo_Score.png';
+    image.src = '../Sofo/Assets/defaultSheet.png';
     image.onload = function () {
         ctx.drawImage(image, 0, 0);
-        // ctx.font = 'bold 21px Times';
-        // ctx.fillText('SongForm', 90, 154);
-        
-        // ctx.textAlign = 'center';
-        // ctx.strokeStyle = "#000000";
-        // ctx.fillStyle = '#EAEAEA';
-        // ctx.roundRect(56, 40, 384, 50, 8);
-        // ctx.fill();
-        // ctx.font = 'bold 24px Times';
-        // ctx.fillStyle = '#000000';
-        // ctx.fillText('Num : 1    Key : E    Tempo = 000', 248, 73);
-
     }
 }
 startForm();
@@ -30,6 +18,40 @@ function reset() {
     startForm();
     imageInput.value = '';
     resetFlag();
+}
+
+// Info Music
+function drawInfoNum(value) {
+    ctx.beginPath();
+    ctx.fillStyle = '#EAEAEA';
+    ctx.roundRect(56, 42, 112, 48, 8);
+    ctx.fill();
+    ctx.textAlign = 'left';
+    ctx.font = 'bold 24px Times';
+    ctx.fillStyle = '#000000';
+    ctx.fillText('Num : ' + value, 66, 73);
+}
+
+function drawInfoKey(value) {
+    ctx.beginPath();
+    ctx.fillStyle = '#EAEAEA';
+    ctx.roundRect(168, 42, 124, 48);
+    ctx.fill();
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 24px Times';
+    ctx.fillStyle = '#000000';
+    ctx.fillText('Key : ' + value, 235, 73);
+}
+
+function drawInfoTempo(value) {
+    ctx.beginPath();
+    ctx.fillStyle = '#EAEAEA';
+    ctx.roundRect(298, 42, 152, 48, 8);
+    ctx.fill();
+    ctx.textAlign = 'right';
+    ctx.font = 'bold 24px Times';
+    ctx.fillStyle = '#000000';
+    ctx.fillText('Tempo = ' + value, 440, 73);
 }
 
 // Info Sheet
@@ -49,6 +71,28 @@ function inputInfoSheet() {
         drawInfoSheet(info);
     }
 
+}
+
+// Songform
+list_Songform = []
+function drawSongform(value) {
+    list_Songform.push(value);
+    ctx.fillStyle = 'white';
+    ctx.fillRect(200, 120, 900, 40);
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 28px Arial';
+    ctx.fillStyle = '#e42e2e';
+    ctx.fillText(list_Songform.join(" - "), 595, 155);
+}
+
+function resetSonform() {
+    list_Songform.length = 0;
+    ctx.fillStyle = 'white';
+    ctx.fillRect(200, 120, 900, 40);
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 28px Arial';
+    ctx.fillStyle = 'lightgray';
+    ctx.fillText("In - A - B - I - A - B - B - C - D - O", 595, 155);
 }
 
 // load Music Score
@@ -113,7 +157,7 @@ function createFlag(name) {
         shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, 
             width: 54, height: 54, strokeStyle: "red", fillStyle: "white", name: name, isDragging: false });
         draw();
-        document.querySelector('select').value = 'flag';
+        document.querySelector('#flag').value = 'flag';
     }
 }
 
@@ -155,8 +199,6 @@ function myDown(e) {
     dragok = false;
     for (let i = shapes.length - 1; i >= 0; i--) {
         let s = shapes[i];
-        const dx = s.x - mx;
-        const dy = s.y - my;
 
         if (
             !dragok &&
@@ -232,7 +274,7 @@ const sheetSlide = [];
 
 const a = document.createElement('p');
   a.innerHTML = '안녕';
-  document.querySelector('#toolbox').appendChild(a);
+  document.querySelector('#slidebox').appendChild(a);
 
 function addSlide(source) {
     sheetSlide.push({

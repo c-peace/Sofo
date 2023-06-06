@@ -46,27 +46,72 @@
       <!-- workspace -->
       <div id="workspace">
         <div id="canvasBox">
-          <div class="canvasBtn" id="info_music"></div>
+
+          <input type="number" class="canvasBtn" id="info_num" min="1" max="20" value="1" onchange="drawInfoNum(value)">
+
+          <div class="dropdown canvasBtn forward_dropdown" id="info_key">
+            <div class="dropdown-content-row" id="dropdown_songform">
+              <option class="option-row-small" value="C" onclick="drawInfoKey(value)">C</option>
+              <option class="option-row-small" value="Db" onclick="drawInfoKey(value)">Db</option>
+              <option class="option-row-small" value="D" onclick="drawInfoKey(value)">D</option>
+              <option class="option-row-small" value="Eb" onclick="drawInfoKey(value)">Eb</option>
+              <option class="option-row-small" value="E" onclick="drawInfoKey(value)">E</option>
+              <option class="option-row-small" value="F" onclick="drawInfoKey(value)">F</option>
+              <option class="option-row-small" value="Gb" onclick="drawInfoKey(value)">Gb</option>
+              <option class="option-row-small" value="G" onclick="drawInfoKey(value)">G</option>
+              <option class="option-row-small" value="Ab" onclick="drawInfoKey(value)">Ab</option>
+              <option class="option-row-small" value="A" onclick="drawInfoKey(value)">A</option>
+              <option class="option-row-small" value="Bb" onclick="drawInfoKey(value)">Bb</option>
+              <option class="option-row-small" value="B" onclick="drawInfoKey(value)">B</option>
+              <option class="option-row-small" value="Cm" onclick="drawInfoKey(value)">Cm</option>
+              <option class="option-row-small" value="Dbm" onclick="drawInfoKey(value)">Dbm</option>
+              <option class="option-row-small" value="Dm" onclick="drawInfoKey(value)">Dm</option>
+              <option class="option-row-small" value="Ebm" onclick="drawInfoKey(value)">Ebm</option>
+              <option class="option-row-small" value="Em" onclick="drawInfoKey(value)">Em</option>
+              <option class="option-row-small" value="Fm" onclick="drawInfoKey(value)">Fm</option>
+              <option class="option-row-small" value="Gbm" onclick="drawInfoKey(value)">Gbm</option>
+              <option class="option-row-small" value="Gm" onclick="drawInfoKey(value)">Gm</option>
+              <option class="option-row-small" value="Abm" onclick="drawInfoKey(value)">Abm</option>
+              <option class="option-row-small" value="Am" onclick="drawInfoKey(value)">Am</option>
+              <option class="option-row-small" value="Bbm" onclick="drawInfoKey(value)">Bbm</option>
+              <option class="option-row-small" value="Bm" onclick="drawInfoKey(value)">Bm</option>
+            </div>
+          </div>
+          
+          <input type="number" class="canvasBtn" id="info_tempo" min="40" max="240" value="110" onchange="drawInfoTempo(value)">
+
           <div class="canvasBtn" id="info_sheet" onclick="inputInfoSheet()"></div>
-          <div class="canvasBtn" id="songform"></div>
+
+          <div class="dropdown canvasBtn" id="songform">
+            <div class="dropdown-content-row">
+              <option class="option-row-big" value="In" title="Intro" onclick="drawSongform(value)">In</option>
+              <option class="option-row-big" value="I" title="Interlude" onclick="drawSongform(value)">I</option>
+              <option class="option-row-big" value="O" title="Outro" onclick="drawSongform(value)">O</option>
+              <option class="option-row-big" value="A" title="A part" onclick="drawSongform(value)">A</option>
+              <option class="option-row-big" value="B" title="B part" onclick="drawSongform(value)">B</option>
+              <option class="option-row-big" value="C" title="C part" onclick="drawSongform(value)">C</option>
+              <option class="option-row-big" value="D" title="D part" onclick="drawSongform(value)">D</option>
+              <option class="option-row-big" title="Reset" onclick="resetSonform()">Reset</option>
+            </div>
+          </div>
 
           <label for="upload">
             <div class="canvasBtn" id="image">Image</div>
             <input type="file" accept="image/*" id="upload" style="display: none;"/>
           </label>
 
-          <label for="flag" id="label_select">
-            <select name="flags" class="canvasBtn" id="flag" onchange="createFlag(value)">
-              <option value="flag" hidden>Flag</option>
-              <option value="In">In</option>
-              <option value="I">I</option>
-              <option value="O">O</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-            </select>
-          </label>
+          <div class="dropdown canvasBtn" id="flag">
+            Flag
+            <div class="dropdown-content-column">
+              <option class="option-column" value="In" title="Intro" onclick="createFlag(value)">In</option>
+              <option class="option-column" value="I" title="Interlude" onclick="createFlag(value)">I</option>
+              <option class="option-column" value="O" title="Outro" onclick="createFlag(value)">O</option>
+              <option class="option-column" value="A" title="A part" onclick="createFlag(value)">A</option>
+              <option class="option-column" value="B" title="B part" onclick="createFlag(value)">B</option>
+              <option class="option-column" value="C" title="C part" onclick="createFlag(value)">C</option>
+              <option class="option-column" value="D" title="D part" onclick="createFlag(value)">D</option>
+            </div>
+          </div>
 
           <canvas id="canvasFlag"></canvas>
           <canvas id="canvasMain"></canvas>
@@ -79,8 +124,8 @@
         </div>
       </div>
 
-      <!-- toolbox -->
-      <div id="toolbox">
+      <!-- slidebox -->
+      <div id="slidebox">
         <img src="Sofo/Assets/addSlide.png" id="addSlide" onclick="">
       </div>
     </div>
