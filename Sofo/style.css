@@ -176,6 +176,7 @@
     position: absolute;
     background-color: var(--color-sidebar);
     bottom: 25px;
+    border-radius: 4px;
 }
 
 .dropdown-content-row {
@@ -196,7 +197,7 @@
     width: calc(30 / 969 * 100vh);
     text-align: center;
     padding: 10px;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
 }
 
 .option-row-small {
@@ -226,7 +227,7 @@
 }
 
 .option-row-small:hover, .option-row-big:hover {
-    background-color: var(--color-hover);
+    background-color: var(--color-sizebar);
 }
 
 .dropdown:hover .dropdown-content-column {
