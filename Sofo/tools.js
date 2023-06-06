@@ -279,12 +279,41 @@ function myMove(e) {
 }
 
 // Slidebox
-function saveSlide() {
-    
+const sheetSlide = [];
+
+function addNewSlide() {
+    sheetSlide.push({
+        mainImage: '',
+        submitImage: '',
+        flags: [],
+        isclicked: true
+    });
 }
 
-// sheetSlide 안에는 이미지 파일들을 저장해 두는 것으로 설계를 한다.
-const sheetSlide = [];
+function saveSlide() {
+    sheetSlide.push({
+        mainImage: canvas.toDataURL(),
+        submitImage: canvasSubmit.toDataURL(),
+        flags: flags,
+        isclicked: false
+    });
+}
+
+function bringOtherSlide() {
+    // isclicked 검사를 click 이벤트 리스너에서 동시에 하도록 변경할 예정
+    for (let i = 0; i < sheetSlide.length; i++) {
+        const s = sheetSlide[i];
+        if (s.isclicked) {
+            const image = new Image();
+            image.src = '../Sofo/Assets/defaultSheet.png';
+            image.onload = function () {
+                ctx.drawImage(image, 0, 0);
+                flags = s.flags;
+                draw();
+            }
+        }
+    }
+}
 
 const a = document.createElement('p');
   a.innerHTML = '안녕';
