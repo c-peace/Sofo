@@ -281,13 +281,29 @@ function myMove(e) {
 // Slidebox
 const sheetSlide = [];
 
+function removeSlides() {
+    slide = document.getElementById('slide');
+    slidebox = document.getElementById('slidebox');
+    slidebox.removeChild(slide);
+    sheetSlide.length = 0;
+}
+
+function showSlide(i) {
+    slide = new Image;
+    slide.src = sheetSlide[i].submitImage;
+    slide.style = 'width: 182px; height: 257';
+    slide.id = 'slide';
+    document.querySelector('#slidebox').appendChild(slide);
+}
+
 function addNewSlide() {
     sheetSlide.push({
         mainImage: '',
-        submitImage: '',
+        submitImage: '../Sofo/Assets/defaultSheet.png',
         flags: [],
         isclicked: true
     });
+    showSlide(sheetSlide.length-1);
 }
 
 function saveSlide() {
@@ -313,16 +329,6 @@ function bringOtherSlide() {
             }
         }
     }
-}
-
-const a = document.createElement('p');
-  a.innerHTML = '안녕';
-  document.querySelector('#slidebox').appendChild(a);
-
-function addSlide(source) {
-    sheetSlide.push({
-        img: source
-    })
 }
 
 
