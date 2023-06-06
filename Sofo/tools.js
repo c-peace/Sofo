@@ -10,15 +10,13 @@ function startForm() {
     image.src = '../Sofo/Assets/defaultSheet.png';
     image.onload = function () {
         ctx.drawImage(image, 0, 0);
+        imageInput.value = '';
+        resetFlag();
+        resetInfoMusic();
+        resetSonform();
     }
 }
 startForm();
-
-function reset() {
-    startForm();
-    imageInput.value = '';
-    resetFlag();
-}
 
 // Info Music
 function drawInfoNum(value) {
@@ -52,6 +50,12 @@ function drawInfoTempo(value) {
     ctx.font = 'bold 24px Times';
     ctx.fillStyle = '#000000';
     ctx.fillText('Tempo = ' + value, 440, 73);
+}
+
+function resetInfoMusic() {
+    document.getElementById('info_num').value = 1;
+    document.getElementById('info_key').value = 'C';
+    document.getElementById('info_tempo').value = 110;
 }
 
 // Info Sheet
@@ -140,12 +144,11 @@ canvasFlag.addEventListener('mousedown', myDown);
 canvasFlag.addEventListener('mouseup', myUp);
 canvasFlag.addEventListener('mousemove', myMove);
 
-const shapes = [];
-
+const flags = [];
 
 function resetFlag() {
     clearCanvasFlag();
-    shapes.length = 0;
+    flags.length = 0;
 }
 
 function clearCanvasFlag() {
@@ -154,8 +157,16 @@ function clearCanvasFlag() {
 
 function createFlag(name) {
     if (name != 'Flag') {
-        shapes.push({ x: Math.floor(Math.random() * 951) + 120, y: Math.floor(Math.random() * 100) + 1500, 
-            width: 54, height: 54, strokeStyle: "red", fillStyle: "white", name: name, isDragging: false });
+        flags.push({
+            x: Math.floor(Math.random() * 951) + 120, 
+            y: Math.floor(Math.random() * 100) + 1500,
+            width: 54, 
+            height: 54, 
+            strokeStyle: "red", 
+            fillStyle: "white", 
+            name: name, 
+            isDragging: false
+        });
         draw();
         document.querySelector('#flag').value = 'flag';
     }
@@ -180,8 +191,8 @@ function rect(r) {
 
 function draw() {
     clearCanvasFlag();
-    for (let i = 0; i < shapes.length; i++) {
-        rect(shapes[i]);
+    for (let i = 0; i < flags.length; i++) {
+        rect(flags[i]);
     }
 }
 
@@ -197,8 +208,8 @@ function myDown(e) {
 
     // test each shape to see if mouse is inside
     dragok = false;
-    for (let i = shapes.length - 1; i >= 0; i--) {
-        let s = shapes[i];
+    for (let i = flags.length - 1; i >= 0; i--) {
+        let s = flags[i];
 
         if (
             !dragok &&
@@ -225,8 +236,8 @@ function myUp(e) {
 
     // clear all the dragging flags
     dragok = false;
-    for (let i = 0; i < shapes.length; i++) {
-        shapes[i].isDragging = false;
+    for (let i = 0; i < flags.length; i++) {
+        flags[i].isDragging = false;
     }
 }
 
@@ -250,8 +261,8 @@ function myMove(e) {
         // move each rect that isDragging
         // by the distance the mouse has moved
         // since the last mousemove
-        for (let i = 0; i < shapes.length; i++) {
-            const s = shapes[i];
+        for (let i = 0; i < flags.length; i++) {
+            const s = flags[i];
             if (s.isDragging) {
                 s.x += dx;
                 s.y += dy;
