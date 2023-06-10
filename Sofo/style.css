@@ -127,7 +127,7 @@
 
 /* about WorkSpace */
 #workspace {
-    width: calc(100% - 504px);
+    width: calc(100% - 474px);
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -322,6 +322,7 @@
     border: 1px solid black;
     border-radius: 3px 0 0 3px;
     font-size: calc(15 / 969 * 100vh);
+    background-color: rgba(255, 255, 255, 0.637);
     
 }
 
@@ -333,10 +334,11 @@
     border: 1px solid black;
     border-radius: 0 3px 3px 0;
     display: flex;
+    background-color: rgba(255, 255, 255, 0.637);
 }
 
 #image:hover, #flag:hover {
-    background-color: rgba(255, 0, 0, 0.534);
+    color: rgb(231, 27, 27);
 }
 
 .key_select {
@@ -413,7 +415,7 @@ canvas {
 
 /* about Slidebox */
 #slidebox {
-    width: 230px;
+    width: 200px;
     height: 100vh;
     overflow-y: scroll;
     display: flex;
@@ -433,10 +435,12 @@ canvas {
 }
 
 #slidebox img {
+    width: 160px;
     margin-bottom: 20px;
     box-shadow: 0px 3px 3px #c7b09b;
     border-radius: 6px;
     transition: all 200ms;
+    position: relative;
 }
 
 #slidebox img:hover {

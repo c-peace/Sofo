@@ -9,14 +9,21 @@ function startForm() {
     const image = new Image();
     image.src = '../Sofo/Assets/defaultSheet.png';
     image.onload = function () {
-        ctx.drawImage(image, 0, 0);
         imageInput.value = '';
+        ctx.drawImage(image, 0, 0);
         resetFlag();
         resetInfoMusic();
         resetSonform();
+        saveSheet();
     }
 }
 startForm();
+
+// canvasbtn
+const canvasBox = document.querySelector('#canvasBox');
+canvasBox.addEventListener('click', () => {
+    saveSheet();
+});
 
 // Info Music
 function drawInfoNum(value) {
@@ -104,7 +111,6 @@ function loadImage(event) {
     const file = event.target.files[0];
     const url = URL.createObjectURL(file);
     const image = new Image();
-    console.dir(file);
     image.src = url;
     image.onload = function () {
         clearImage();
@@ -118,6 +124,7 @@ function loadImage(event) {
         }
 
         ctx.drawImage(image, (canvas.width - imageWidth) / 2, (166 + canvas.height - imageHeight) / 2, imageWidth, imageHeight);
+        saveSheet();
     };
 };
 
@@ -144,7 +151,7 @@ canvasFlag.addEventListener('mousedown', myDown);
 canvasFlag.addEventListener('mouseup', myUp);
 canvasFlag.addEventListener('mousemove', myMove);
 
-const flags = [];
+let flags = [];
 
 function resetFlag() {
     clearCanvasFlag();
@@ -156,20 +163,18 @@ function clearCanvasFlag() {
 }
 
 function createFlag(name) {
-    if (name != 'Flag') {
-        flags.push({
-            x: Math.floor(Math.random() * 951) + 120, 
-            y: Math.floor(Math.random() * 100) + 1500,
-            width: 54, 
-            height: 54, 
-            strokeStyle: "red", 
-            fillStyle: "white", 
-            name: name, 
-            isDragging: false
-        });
-        draw();
-        document.querySelector('#flag').value = 'flag';
-    }
+    flags.push({
+        x: Math.floor(Math.random() * 951) + 120,
+        y: Math.floor(Math.random() * 100) + 1500,
+        width: 54,
+        height: 54,
+        strokeStyle: "red",
+        fillStyle: "white",
+        name: name,
+        isDragging: false
+    });
+    draw();
+    document.querySelector('#flag').value = 'flag';
 }
 
 function rect(r) {
@@ -279,55 +284,119 @@ function myMove(e) {
 }
 
 // Slidebox
-const sheetSlide = [];
+const sheetSlide = [{
+    id: 0,
+    mainImage: '',
+    submitImage: '../Sofo/Assets/defaultSheet.png',
+    flagList: [],
+    edit: true
+}];
+addSlideElement(0);
 
-function removeSlides() {
-    slide = document.getElementById('slide');
-    slidebox = document.getElementById('slidebox');
-    slidebox.removeChild(slide);
-    sheetSlide.length = 0;
-}
+function controlSlide(id) {
+    console.log(document.querySelector('#slidebox'), sheetSlide);
+    saveSlide();
 
-function showSlide(i) {
-    slide = new Image;
-    slide.src = sheetSlide[i].submitImage;
-    slide.style = 'width: 182px; height: 257';
-    slide.id = 'slide';
-    document.querySelector('#slidebox').appendChild(slide);
+    if (String(id) == 'addSlide') {
+        addNewSlide();
+        showSlide();
+        startForm();
+    } else {
+        bringOtherSlide(id);
+        reloadSlide();
+    }
 }
 
 function addNewSlide() {
     sheetSlide.push({
+        id: sheetSlide.length,
         mainImage: '',
         submitImage: '../Sofo/Assets/defaultSheet.png',
-        flags: [],
-        isclicked: true
+        flagList: [],
+        edit: true
     });
-    showSlide(sheetSlide.length-1);
+}
+
+function showSlide() {
+    // 기존의 slide를 제거
+    for (let i = 1; i < sheetSlide.length; i++) {
+        const slides = document.querySelector('.slide');
+        slides.remove();
+    }
+
+    // sheetSlide에 있는 slide들을 표기
+    for (let i = 0; i < sheetSlide.length; i++) {
+        addSlideElement(i);
+    }
+}
+
+function reloadSlide() {
+    // 기존의 slide를 제거
+    for (let i = 0; i < sheetSlide.length; i++) {
+        const slides = document.querySelector('.slide');
+        slides.remove();
+    }
+
+    // sheetSlide에 있는 slide들을 표기
+    for (let i = 0; i < sheetSlide.length; i++) {
+        addSlideElement(i);
+    }
+}
+
+function addSlideElement(i) {
+    const slide = new Image;
+    slide.src = sheetSlide[i].submitImage;
+    if (sheetSlide[i].edit) {
+        slide.style = 'border: 2px solid #6C6C6C;';
+    } else {
+        slide.style = 'border: 2px solid #D2BDAB;';
+    }
+    slide.id = i;
+    slide.className = 'slide';
+    slide.setAttribute('onclick', 'controlSlide(id)');
+    document.querySelector('#slidebox').appendChild(slide);
 }
 
 function saveSlide() {
-    sheetSlide.push({
-        mainImage: canvas.toDataURL(),
-        submitImage: canvasSubmit.toDataURL(),
-        flags: flags,
-        isclicked: false
-    });
+    for (let i = 0; i < sheetSlide.length; i++) {
+        if (sheetSlide[i].edit) {
+            console.log(i);
+            combineCanvas();
+            const s = sheetSlide[i];
+            s.mainImage = canvas.toDataURL();
+            s.submitImage = canvasSubmit.toDataURL();
+            s.flagList = Array.from(flags);
+            s.edit = false;
+        }
+    }
 }
 
-function bringOtherSlide() {
-    // isclicked 검사를 click 이벤트 리스너에서 동시에 하도록 변경할 예정
+function saveSheet() {
     for (let i = 0; i < sheetSlide.length; i++) {
-        const s = sheetSlide[i];
-        if (s.isclicked) {
-            const image = new Image();
-            image.src = '../Sofo/Assets/defaultSheet.png';
-            image.onload = function () {
-                ctx.drawImage(image, 0, 0);
-                flags = s.flags;
-                draw();
-            }
+        if (sheetSlide[i].edit) {
+            console.log(i);
+            combineCanvas();
+            const s = sheetSlide[i];
+            s.mainImage = canvas.toDataURL();
+            s.submitImage = canvasSubmit.toDataURL();
+            s.flagList = Array.from(flags);
         }
+    }
+    reloadSlide();
+}
+
+function bringOtherSlide(i) {
+    const s = sheetSlide[i];
+    s.edit = true;
+    const image = new Image();
+    image.src = s.mainImage;
+    image.onload = function () {
+        resetFlag();
+        resetInfoMusic();
+        resetSonform();
+        ctx.drawImage(image, 0, 0);
+        flags = Array.from(s.flagList);
+        draw();
     }
 }
 
